@@ -1,0 +1,768 @@
+{
+  "dataset": "CantoBench-Synth",
+  "version": "0.1.0",
+  "license": "CC BY-SA 4.0",
+  "seed": 20260825,
+  "stats": {
+    "n_images": 4930,
+    "n_failed": 39,
+    "by_tier": {
+      "char": 1162,
+      "word": 1781,
+      "sentence": 1987
+    },
+    "by_difficulty": {
+      "medium": 1250,
+      "clean": 1215,
+      "light": 1709,
+      "hard": 756
+    },
+    "by_source": {
+      "charset": 1162,
+      "rime-cantonese": 1781,
+      "hkcancor": 999,
+      "wikipedia": 988
+    },
+    "by_plane": {
+      "ExtA": 28,
+      "BMP": 994,
+      "ExtB+": 140
+    },
+    "n_distinct_texts": 1433,
+    "n_fonts_used": 33,
+    "n_unrenderable_chars": 2,
+    "elapsed_sec": 24.9
+  },
+  "charset": {
+    "total": 154,
+    "by_plane": {
+      "BMP": 128,
+      "ExtA": 4,
+      "ExtB+": 22
+    },
+    "by_source": {
+      "diff+core+pair": 11,
+      "diff+core": 29,
+      "diff": 52,
+      "diff+core+ext": 1,
+      "diff+ext": 3,
+      "core+pair": 4,
+      "core": 52,
+      "ext": 2
+    },
+    "filtered_out": {
+      "standard": 3158,
+      "japanese": 3,
+      "excluded": 69,
+      "low_freq": 1346
+    },
+    "standard_charset_size": 9908,
+    "japanese_only_size": 331,
+    "excluded_size": 72,
+    "min_freq": 3,
+    "hkscs_overlap": 75
+  },
+  "unrenderable_chars": [
+    {
+      "char": "𠮶",
+      "codepoint": "U+20BB6",
+      "plane": "ExtB+",
+      "corpus_freq": 0
+    },
+    {
+      "char": "𤗲",
+      "codepoint": "U+245F2",
+      "plane": "ExtB+",
+      "corpus_freq": 5
+    }
+  ],
+  "fonts": {
+    "scanned_files": 17,
+    "total_instances": 33,
+    "usable_instances": 33,
+    "with_full_ext": 0,
+    "families": [
+      "ChironHeiHK-B",
+      "ChironHeiHK-EL",
+      "ChironHeiHK-H",
+      "ChironHeiHK-L",
+      "ChironHeiHK-M",
+      "ChironHeiHK-N",
+      "ChironSungHK-B",
+      "ChironSungHK-EL",
+      "ChironSungHK-H",
+      "ChironSungHK-L",
+      "ChironSungHK-M",
+      "ChironSungHK-N",
+      "NotoSansHK-VF",
+      "NotoSansTC-VF",
+      "NotoSerifHK-VF",
+      "NotoSerifTC-VF",
+      "hkcs-traditional-bmp-canonicalonly"
+    ],
+    "fonts": [
+      {
+        "key": "ChironHeiHK-B",
+        "family": "ChironHeiHK-B",
+        "path": "ChironHeiHK-B.ttf",
+        "index": 0,
+        "variation": null,
+        "license": "OFL-1.1",
+        "n_glyphs": 47724,
+        "coverage_bmp": 1.0,
+        "coverage_ext": 0.833
+      },
+      {
+        "key": "ChironHeiHK-EL",
+        "family": "ChironHeiHK-EL",
+        "path": "ChironHeiHK-EL.ttf",
+        "index": 0,
+        "variation": null,
+        "license": "OFL-1.1",
+        "n_glyphs": 47724,
+        "coverage_bmp": 1.0,
+        "coverage_ext": 0.833
+      },
+      {
+        "key": "ChironHeiHK-H",
+        "family": "ChironHeiHK-H",
+        "path": "ChironHeiHK-H.ttf",
+        "index": 0,
+        "variation": null,
+        "license": "OFL-1.1",
+        "n_glyphs": 47724,
+        "coverage_bmp": 1.0,
+        "coverage_ext": 0.833
+      },
+      {
+        "key": "ChironHeiHK-L",
+        "family": "ChironHeiHK-L",
+        "path": "ChironHeiHK-L.ttf",
+        "index": 0,
+        "variation": null,
+        "license": "OFL-1.1",
+        "n_glyphs": 47724,
+        "coverage_bmp": 1.0,
+        "coverage_ext": 0.833
+      },
+      {
+        "key": "ChironHeiHK-M",
+        "family": "ChironHeiHK-M",
+        "path": "ChironHeiHK-M.ttf",
+        "index": 0,
+        "variation": null,
+        "license": "OFL-1.1",
+        "n_glyphs": 47724,
+        "coverage_bmp": 1.0,
+        "coverage_ext": 0.833
+      },
+      {
+        "key": "ChironHeiHK-N",
+        "family": "ChironHeiHK-N",
+        "path": "ChironHeiHK-N.ttf",
+        "index": 0,
+        "variation": null,
+        "license": "OFL-1.1",
+        "n_glyphs": 47724,
+        "coverage_bmp": 1.0,
+        "coverage_ext": 0.833
+      },
+      {
+        "key": "ChironSungHK-B",
+        "family": "ChironSungHK-B",
+        "path": "ChironSungHK-B.ttf",
+        "index": 0,
+        "variation": null,
+        "license": "OFL-1.1",
+        "n_glyphs": 47014,
+        "coverage_bmp": 1.0,
+        "coverage_ext": 0.833
+      },
+      {
+        "key": "ChironSungHK-EL",
+        "family": "ChironSungHK-EL",
+        "path": "ChironSungHK-EL.ttf",
+        "index": 0,
+        "variation": null,
+        "license": "OFL-1.1",
+        "n_glyphs": 47014,
+        "coverage_bmp": 1.0,
+        "coverage_ext": 0.833
+      },
+      {
+        "key": "ChironSungHK-H",
+        "family": "ChironSungHK-H",
+        "path": "ChironSungHK-H.ttf",
+        "index": 0,
+        "variation": null,
+        "license": "OFL-1.1",
+        "n_glyphs": 47014,
+        "coverage_bmp": 1.0,
+        "coverage_ext": 0.833
+      },
+      {
+        "key": "ChironSungHK-L",
+        "family": "ChironSungHK-L",
+        "path": "ChironSungHK-L.ttf",
+        "index": 0,
+        "variation": null,
+        "license": "OFL-1.1",
+        "n_glyphs": 47014,
+        "coverage_bmp": 1.0,
+        "coverage_ext": 0.833
+      },
+      {
+        "key": "ChironSungHK-M",
+        "family": "ChironSungHK-M",
+        "path": "ChironSungHK-M.ttf",
+        "index": 0,
+        "variation": null,
+        "license": "OFL-1.1",
+        "n_glyphs": 47014,
+        "coverage_bmp": 1.0,
+        "coverage_ext": 0.833
+      },
+      {
+        "key": "ChironSungHK-N",
+        "family": "ChironSungHK-N",
+        "path": "ChironSungHK-N.ttf",
+        "index": 0,
+        "variation": null,
+        "license": "OFL-1.1",
+        "n_glyphs": 47014,
+        "coverage_bmp": 1.0,
+        "coverage_ext": 0.833
+      },
+      {
+        "key": "NotoSansHK-VF@300",
+        "family": "NotoSansHK-VF",
+        "path": "NotoSansHK-VF.ttf",
+        "index": 0,
+        "variation": 300,
+        "license": "OFL-1.1",
+        "n_glyphs": 20755,
+        "coverage_bmp": 1.0,
+        "coverage_ext": 0.833
+      },
+      {
+        "key": "NotoSansHK-VF@400",
+        "family": "NotoSansHK-VF",
+        "path": "NotoSansHK-VF.ttf",
+        "index": 0,
+        "variation": 400,
+        "license": "OFL-1.1",
+        "n_glyphs": 20755,
+        "coverage_bmp": 1.0,
+        "coverage_ext": 0.833
+      },
+      {
+        "key": "NotoSansHK-VF@500",
+        "family": "NotoSansHK-VF",
+        "path": "NotoSansHK-VF.ttf",
+        "index": 0,
+        "variation": 500,
+        "license": "OFL-1.1",
+        "n_glyphs": 20755,
+        "coverage_bmp": 1.0,
+        "coverage_ext": 0.833
+      },
+      {
+        "key": "NotoSansHK-VF@700",
+        "family": "NotoSansHK-VF",
+        "path": "NotoSansHK-VF.ttf",
+        "index": 0,
+        "variation": 700,
+        "license": "OFL-1.1",
+        "n_glyphs": 20755,
+        "coverage_bmp": 1.0,
+        "coverage_ext": 0.833
+      },
+      {
+        "key": "NotoSansHK-VF@900",
+        "family": "NotoSansHK-VF",
+        "path": "NotoSansHK-VF.ttf",
+        "index": 0,
+        "variation": 900,
+        "license": "OFL-1.1",
+        "n_glyphs": 20755,
+        "coverage_bmp": 1.0,
+        "coverage_ext": 0.833
+      },
+      {
+        "key": "NotoSansTC-VF@300",
+        "family": "NotoSansTC-VF",
+        "path": "NotoSansTC-VF.ttf",
+        "index": 0,
+        "variation": 300,
+        "license": "OFL-1.1",
+        "n_glyphs": 20745,
+        "coverage_bmp": 1.0,
+        "coverage_ext": 0.833
+      },
+      {
+        "key": "NotoSansTC-VF@400",
+        "family": "NotoSansTC-VF",
+        "path": "NotoSansTC-VF.ttf",
+        "index": 0,
+        "variation": 400,
+        "license": "OFL-1.1",
+        "n_glyphs": 20745,
+        "coverage_bmp": 1.0,
+        "coverage_ext": 0.833
+      },
+      {
+        "key": "NotoSansTC-VF@500",
+        "family": "NotoSansTC-VF",
+        "path": "NotoSansTC-VF.ttf",
+        "index": 0,
+        "variation": 500,
+        "license": "OFL-1.1",
+        "n_glyphs": 20745,
+        "coverage_bmp": 1.0,
+        "coverage_ext": 0.833
+      },
+      {
+        "key": "NotoSansTC-VF@700",
+        "family": "NotoSansTC-VF",
+        "path": "NotoSansTC-VF.ttf",
+        "index": 0,
+        "variation": 700,
+        "license": "OFL-1.1",
+        "n_glyphs": 20745,
+        "coverage_bmp": 1.0,
+        "coverage_ext": 0.833
+      },
+      {
+        "key": "NotoSansTC-VF@900",
+        "family": "NotoSansTC-VF",
+        "path": "NotoSansTC-VF.ttf",
+        "index": 0,
+        "variation": 900,
+        "license": "OFL-1.1",
+        "n_glyphs": 20745,
+        "coverage_bmp": 1.0,
+        "coverage_ext": 0.833
+      },
+      {
+        "key": "NotoSerifHK-VF@300",
+        "family": "NotoSerifHK-VF",
+        "path": "NotoSerifHK-VF.ttf",
+        "index": 0,
+        "variation": 300,
+        "license": "OFL-1.1",
+        "n_glyphs": 20759,
+        "coverage_bmp": 1.0,
+        "coverage_ext": 0.833
+      },
+      {
+        "key": "NotoSerifHK-VF@400",
+        "family": "NotoSerifHK-VF",
+        "path": "NotoSerifHK-VF.ttf",
+        "index": 0,
+        "variation": 400,
+        "license": "OFL-1.1",
+        "n_glyphs": 20759,
+        "coverage_bmp": 1.0,
+        "coverage_ext": 0.833
+      },
+      {
+        "key": "NotoSerifHK-VF@500",
+        "family": "NotoSerifHK-VF",
+        "path": "NotoSerifHK-VF.ttf",
+        "index": 0,
+        "variation": 500,
+        "license": "OFL-1.1",
+        "n_glyphs": 20759,
+        "coverage_bmp": 1.0,
+        "coverage_ext": 0.833
+      },
+      {
+        "key": "NotoSerifHK-VF@700",
+        "family": "NotoSerifHK-VF",
+        "path": "NotoSerifHK-VF.ttf",
+        "index": 0,
+        "variation": 700,
+        "license": "OFL-1.1",
+        "n_glyphs": 20759,
+        "coverage_bmp": 1.0,
+        "coverage_ext": 0.833
+      },
+      {
+        "key": "NotoSerifHK-VF@900",
+        "family": "NotoSerifHK-VF",
+        "path": "NotoSerifHK-VF.ttf",
+        "index": 0,
+        "variation": 900,
+        "license": "OFL-1.1",
+        "n_glyphs": 20759,
+        "coverage_bmp": 1.0,
+        "coverage_ext": 0.833
+      },
+      {
+        "key": "NotoSerifTC-VF@300",
+        "family": "NotoSerifTC-VF",
+        "path": "NotoSerifTC-VF.ttf",
+        "index": 0,
+        "variation": 300,
+        "license": "OFL-1.1",
+        "n_glyphs": 20748,
+        "coverage_bmp": 1.0,
+        "coverage_ext": 0.833
+      },
+      {
+        "key": "NotoSerifTC-VF@400",
+        "family": "NotoSerifTC-VF",
+        "path": "NotoSerifTC-VF.ttf",
+        "index": 0,
+        "variation": 400,
+        "license": "OFL-1.1",
+        "n_glyphs": 20748,
+        "coverage_bmp": 1.0,
+        "coverage_ext": 0.833
+      },
+      {
+        "key": "NotoSerifTC-VF@500",
+        "family": "NotoSerifTC-VF",
+        "path": "NotoSerifTC-VF.ttf",
+        "index": 0,
+        "variation": 500,
+        "license": "OFL-1.1",
+        "n_glyphs": 20748,
+        "coverage_bmp": 1.0,
+        "coverage_ext": 0.833
+      },
+      {
+        "key": "NotoSerifTC-VF@700",
+        "family": "NotoSerifTC-VF",
+        "path": "NotoSerifTC-VF.ttf",
+        "index": 0,
+        "variation": 700,
+        "license": "OFL-1.1",
+        "n_glyphs": 20748,
+        "coverage_bmp": 1.0,
+        "coverage_ext": 0.833
+      },
+      {
+        "key": "NotoSerifTC-VF@900",
+        "family": "NotoSerifTC-VF",
+        "path": "NotoSerifTC-VF.ttf",
+        "index": 0,
+        "variation": 900,
+        "license": "OFL-1.1",
+        "n_glyphs": 20748,
+        "coverage_bmp": 1.0,
+        "coverage_ext": 0.833
+      },
+      {
+        "key": "hkcs-traditional-bmp-canonicalonly",
+        "family": "hkcs-traditional-bmp-canonicalonly",
+        "path": "hkcs-traditional-bmp-canonicalonly.otf",
+        "index": 0,
+        "variation": null,
+        "license": "OFL-1.1",
+        "n_glyphs": 21678,
+        "coverage_bmp": 1.0,
+        "coverage_ext": 0.667
+      }
+    ]
+  },
+  "corpora": [
+    {
+      "source": "wikipedia",
+      "license": "CC BY-SA 4.0",
+      "attribution": "粵語維基百科 Cantonese Wikipedia (zh-yue.wikipedia.org)"
+    },
+    {
+      "source": "hkcancor",
+      "license": "CC BY 4.0",
+      "attribution": "Hong Kong Cantonese Corpus (HKCanCor), Luke & Wong (2015)"
+    },
+    {
+      "source": "rime-cantonese",
+      "license": "CC BY 4.0",
+      "attribution": "rime-cantonese (CanCLID)"
+    }
+  ],
+  "image_height": 48,
+  "difficulty_weights": {
+    "clean": 0.25,
+    "light": 0.35,
+    "medium": 0.25,
+    "hard": 0.15
+  },
+  "failures": [
+    {
+      "ok": false,
+      "index": 102,
+      "text": "叻",
+      "font": "ChironHeiHK-EL",
+      "error": "墨水比例過低 0.0000（疑似豆腐字或空白）"
+    },
+    {
+      "ok": false,
+      "index": 301,
+      "text": "嘈",
+      "font": "ChironHeiHK-EL",
+      "error": "墨水比例過低 0.0000（疑似豆腐字或空白）"
+    },
+    {
+      "ok": false,
+      "index": 617,
+      "text": "晏",
+      "font": "ChironHeiHK-EL",
+      "error": "對比過低 23（文字被增強抹平）"
+    },
+    {
+      "ok": false,
+      "index": 627,
+      "text": "曱",
+      "font": "ChironHeiHK-EL",
+      "error": "墨水比例過低 0.0008（疑似豆腐字或空白）"
+    },
+    {
+      "ok": false,
+      "index": 781,
+      "text": "蟝",
+      "font": "ChironHeiHK-EL",
+      "error": "對比過低 33（文字被增強抹平）"
+    },
+    {
+      "ok": false,
+      "index": 784,
+      "text": "蟧",
+      "font": "ChironHeiHK-EL",
+      "error": "對比過低 24（文字被增強抹平）"
+    },
+    {
+      "ok": false,
+      "index": 1112,
+      "text": "地",
+      "font": "ChironHeiHK-EL",
+      "error": "對比過低 33（文字被增強抹平）"
+    },
+    {
+      "ok": false,
+      "index": 1216,
+      "text": "揸兜",
+      "font": "ChironHeiHK-EL",
+      "error": "墨水比例過低 0.0019（疑似豆腐字或空白）"
+    },
+    {
+      "ok": false,
+      "index": 1244,
+      "text": "搞生日",
+      "font": "ChironHeiHK-EL",
+      "error": "墨水比例過低 0.0023（疑似豆腐字或空白）"
+    },
+    {
+      "ok": false,
+      "index": 1249,
+      "text": "弔煲",
+      "font": "ChironHeiHK-EL",
+      "error": "墨水比例過低 0.0020（疑似豆腐字或空白）"
+    },
+    {
+      "ok": false,
+      "index": 1272,
+      "text": "巢咪蚊",
+      "font": "ChironSungHK-EL",
+      "error": "對比過低 39（文字被增強抹平）"
+    },
+    {
+      "ok": false,
+      "index": 1543,
+      "text": "覆咗",
+      "font": "ChironSungHK-N",
+      "error": "對比過低 32（文字被增強抹平）"
+    },
+    {
+      "ok": false,
+      "index": 1780,
+      "text": "但佢哋",
+      "font": "ChironSungHK-M",
+      "error": "對比過低 42（文字被增強抹平）"
+    },
+    {
+      "ok": false,
+      "index": 1799,
+      "text": "愛嚟",
+      "font": "ChironHeiHK-EL",
+      "error": "對比過低 38（文字被增強抹平）"
+    },
+    {
+      "ok": false,
+      "index": 2092,
+      "text": "咁熟都吠",
+      "font": "ChironHeiHK-EL",
+      "error": "對比過低 39（文字被增強抹平）"
+    },
+    {
+      "ok": false,
+      "index": 2135,
+      "text": "打橫瞓",
+      "font": "ChironHeiHK-EL",
+      "error": "墨水比例過低 0.0002（疑似豆腐字或空白）"
+    },
+    {
+      "ok": false,
+      "index": 2152,
+      "text": "唔肯過佢",
+      "font": "ChironHeiHK-EL",
+      "error": "對比過低 39（文字被增強抹平）"
+    },
+    {
+      "ok": false,
+      "index": 2199,
+      "text": "佢哋雙方",
+      "font": "ChironHeiHK-EL",
+      "error": "墨水比例過低 0.0027（疑似豆腐字或空白）"
+    },
+    {
+      "ok": false,
+      "index": 2384,
+      "text": "咩說話",
+      "font": "ChironHeiHK-EL",
+      "error": "墨水比例過低 0.0040（疑似豆腐字或空白）"
+    },
+    {
+      "ok": false,
+      "index": 2387,
+      "text": "拚佊嚟",
+      "font": "ChironHeiHK-EL",
+      "error": "對比過低 34（文字被增強抹平）"
+    },
+    {
+      "ok": false,
+      "index": 2533,
+      "text": "兩黨關係",
+      "font": "ChironHeiHK-EL",
+      "error": "墨水比例過低 0.0015（疑似豆腐字或空白）"
+    },
+    {
+      "ok": false,
+      "index": 2561,
+      "text": "翳焗",
+      "font": "ChironHeiHK-EL",
+      "error": "對比過低 44（文字被增強抹平）"
+    },
+    {
+      "ok": false,
+      "index": 2703,
+      "text": "嗰度",
+      "font": "ChironHeiHK-EL",
+      "error": "墨水比例過低 0.0007（疑似豆腐字或空白）"
+    },
+    {
+      "ok": false,
+      "index": 2716,
+      "text": "好死唔死",
+      "font": "ChironSungHK-N",
+      "error": "對比過低 42（文字被增強抹平）"
+    },
+    {
+      "ok": false,
+      "index": 2829,
+      "text": "淨係話",
+      "font": "ChironHeiHK-EL",
+      "error": "對比過低 34（文字被增強抹平）"
+    },
+    {
+      "ok": false,
+      "index": 2887,
+      "text": "竈罅",
+      "font": "ChironSungHK-EL",
+      "error": "對比過低 41（文字被增強抹平）"
+    },
+    {
+      "ok": false,
+      "index": 3268,
+      "text": "跟住後來呢我就停咗啊直程",
+      "font": "ChironHeiHK-EL",
+      "error": "對比過低 43（文字被增強抹平）"
+    },
+    {
+      "ok": false,
+      "index": 3674,
+      "text": "都唔好得去邊𡃉嚹",
+      "font": "ChironHeiHK-EL",
+      "error": "對比過低 44（文字被增強抹平）"
+    },
+    {
+      "ok": false,
+      "index": 3692,
+      "text": "點可能低咗個價唧?",
+      "font": "ChironHeiHK-EL",
+      "error": "墨水比例過低 0.0016（疑似豆腐字或空白）"
+    },
+    {
+      "ok": false,
+      "index": 4009,
+      "text": "福井裕佳梨，係日本嘅一個女藝人同埋配音員",
+      "font": "ChironHeiHK-EL",
+      "error": "對比過低 26（文字被增強抹平）"
+    },
+    {
+      "ok": false,
+      "index": 4086,
+      "text": "其中一條係去嘉禾車輛段",
+      "font": "ChironHeiHK-L",
+      "error": "對比過低 41（文字被增強抹平）"
+    },
+    {
+      "ok": false,
+      "index": 4136,
+      "text": "夏先慶，係臺灣作曲家",
+      "font": "ChironSungHK-L",
+      "error": "對比過低 44（文字被增強抹平）"
+    },
+    {
+      "ok": false,
+      "index": 4218,
+      "text": "喺西方，古羅馬嘅傳統菜譜中亦有燒乳豬一項",
+      "font": "ChironSungHK-EL",
+      "error": "對比過低 42（文字被增強抹平）"
+    },
+    {
+      "ok": false,
+      "index": 4412,
+      "text": "），係法國歌手同作曲家",
+      "font": "ChironHeiHK-EL",
+      "error": "墨水比例過低 0.0015（疑似豆腐字或空白）"
+    },
+    {
+      "ok": false,
+      "index": 4477,
+      "text": "香港嘅地區頂級域係",
+      "font": "ChironHeiHK-L",
+      "error": "對比過低 34（文字被增強抹平）"
+    },
+    {
+      "ok": false,
+      "index": 4711,
+      "text": "蛤𧊅，又叫蛤乸、田鷄、蝦蟆、蛙等，係種動物",
+      "font": "ChironHeiHK-EL",
+      "error": "對比過低 44（文字被增強抹平）"
+    },
+    {
+      "ok": false,
+      "index": 4808,
+      "text": "位元欄（）係程式編寫上用嘅一種數據結構",
+      "font": "ChironHeiHK-EL",
+      "error": "對比過低 38（文字被增強抹平）"
+    },
+    {
+      "ok": false,
+      "index": 4881,
+      "text": "），係日本男歌手、作曲家、音樂製作人同結他手",
+      "font": "NotoSerifHK-VF@300",
+      "error": "對比過低 41（文字被增強抹平）"
+    },
+    {
+      "ok": false,
+      "index": 4932,
+      "text": "惠係唐人姓氏，喺《百家姓》裏頭排第位",
+      "font": "ChironHeiHK-EL",
+      "error": "墨水比例過低 0.0013（疑似豆腐字或空白）"
+    }
+  ]
+}

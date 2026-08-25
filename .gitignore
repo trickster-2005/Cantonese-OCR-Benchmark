@@ -1,0 +1,21 @@
+# 產出與快取
+output/
+.cache/
+fonts/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# 編輯器
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# 從 server 拉回來的檢視用檔案
+server_*.jpg
+server_*.md
+hf_export/

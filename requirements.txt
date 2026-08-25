@@ -1,0 +1,6 @@
+pillow>=10.0
+fonttools>=4.50
+numpy>=1.24
+opencv-python>=4.8
+datasets>=2.14
+pycantonese>=3.4
