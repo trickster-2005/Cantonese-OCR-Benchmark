@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>[草稿] 粵語 OCR 評測資料集 | OCF 2026</title>
+<title>[草稿] 粵文 OCR 評測資料集 | OCF 2026</title>
 <meta name="description" content="粵語（廣東話）OCR 影像評測資料集。4,930 張合成文字行影像，涵蓋粵語特有字、詞彙與短句。">
 <link rel="alternate" hreflang="zh-Hant" href="./">
 <link rel="alternate" hreflang="en" href="en/">
@@ -25,7 +25,7 @@
 <aside class="sidebar">
   <div>
     <p class="sidebar__eyebrow">OCF · AI RESEARCH INTERNSHIP 2026</p>
-    <h1 class="sidebar__title">粵語 OCR 評測資料集</h1>
+    <h1 class="sidebar__title">粵文 OCR 評測資料集</h1>
     <p class="sidebar__subtitle">Cantonese OCR Benchmark · 游聿堂</p>
   </div>
 
@@ -48,10 +48,15 @@
 <main class="content"><div class="wrap">
 
 <header class="hero">
-  <h1>粵語 OCR 評測資料集</h1>
+  <h1>粵文 OCR 評測資料集</h1>
   <p class="sub">
-    粵語書寫用的字，主流 OCR 認不得；而現有的粵語資料集，全是文字與語音。
-本專案製作一份影像形式的粵語 OCR 評測資料集，並公開整套生成流程。
+    粵文（廣東話）有一批廣大的使用者與多元的情境，例如香港城市中的招牌、
+廣告、塗鴉等。
+  </p>
+  <p class="sub">
+    粵文中有許多字如「冇」、「嘅」、「嘢」等，較少出現於台灣繁體中文使用中。
+目前較缺乏供視覺辨識（OCR）所用之資料集，模型表現也不甚理想。此專案
+旨在製作圖片資料集，將粵文字詞、語句製作成資料集，以供模型評測與訓練。
   </p>
   <div class="badges">
     <a class="badge" href="https://huggingface.co/datasets/trickster-2005/cantonese-benchmark-synth">HuggingFace ↗</a>
@@ -66,12 +71,6 @@
   <p class="lead">粵語書寫用的字，主流 OCR 沒學過。</p>
 
   <h3>現有資源的不足</h3>
-  <p>
-    粵語書寫大量使用<span class="cjk-big">嘅、咗、冇、喺、𨋢</span>這類字，
-較少出現在書面文章與台灣繁體中文的使用習慣裡，卻有廣大的使用者與多元的
-情境——香港城市裡的招牌、廣告、塗鴉，日常隨處可見。這些字在主流 OCR 的
-訓練資料中極少出現，模型辨識起來相當吃力。我們在盤點現有資源時發現三件事：
-  </p>
   <ul>
     <li>
       <strong>影像資料集較少。</strong>

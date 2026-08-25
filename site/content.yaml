@@ -76,13 +76,13 @@ shared:
 zh:
   # <title> 標籤與搜尋引擎摘要，不會顯示在頁面上
   meta_title: |
-    [草稿] 粵語 OCR 評測資料集 | OCF 2026
+    [草稿] 粵文 OCR 評測資料集 | OCF 2026
   meta_description: |
     粵語（廣東話）OCR 影像評測資料集。4,930 張合成文字行影像，涵蓋粵語特有字、詞彙與短句。
 
   # 側邊欄
   sidebar_title: |
-    粵語 OCR 評測資料集
+    粵文 OCR 評測資料集
   sidebar_subtitle: |
     Cantonese OCR Benchmark · 游聿堂
 
@@ -102,10 +102,14 @@ zh:
 
   # 最上面的大標題區塊
   hero_h1: |
-    粵語 OCR 評測資料集
-  hero_sub: |
-    粵語書寫用的字，主流 OCR 認不得；而現有的粵語資料集，全是文字與語音。
-    本專案製作一份影像形式的粵語 OCR 評測資料集，並公開整套生成流程。
+    粵文 OCR 評測資料集
+  hero_sub_1: |
+    粵文（廣東話）有一批廣大的使用者與多元的情境，例如香港城市中的招牌、
+    廣告、塗鴉等。
+  hero_sub_2: |
+    粵文中有許多字如「冇」、「嘅」、「嘢」等，較少出現於台灣繁體中文使用中。
+    目前較缺乏供視覺辨識（OCR）所用之資料集，模型表現也不甚理想。此專案
+    旨在製作圖片資料集，將粵文字詞、語句製作成資料集，以供模型評測與訓練。
   hero_badge_size: |
     4,930 張
 
@@ -116,11 +120,6 @@ zh:
     粵語書寫用的字，主流 OCR 沒學過。
   why_gap_heading: |
     現有資源的不足
-  why_gap_intro: |
-    粵語書寫大量使用<span class="cjk-big">嘅、咗、冇、喺、𨋢</span>這類字，
-    較少出現在書面文章與台灣繁體中文的使用習慣裡，卻有廣大的使用者與多元的
-    情境——香港城市裡的招牌、廣告、塗鴉，日常隨處可見。這些字在主流 OCR 的
-    訓練資料中極少出現，模型辨識起來相當吃力。我們在盤點現有資源時發現三件事：
   why_gap_li1: |
     <strong>影像資料集較少。</strong>
     HuggingFace 上搜得到的粵語資料集有二十多個，內容都是純文字或語音，
@@ -455,7 +454,7 @@ en:
   sidebar_title: |
     Cantonese OCR Benchmark
   sidebar_subtitle: |
-    粵語 OCR 評測資料集 · Yu-Tang Yu
+    粵文 OCR 評測資料集 · Yu-Tang Yu
 
   nav_why: |
     Motivation
@@ -472,10 +471,16 @@ en:
 
   hero_h1: |
     A Cantonese OCR benchmark
-  hero_sub: |
-    Mainstream OCR cannot read the characters used in written Cantonese, and the
-    Cantonese datasets that exist are all text or audio. This project builds an
-    image-based Cantonese OCR benchmark and opens the pipeline that generates it.
+  hero_sub_1: |
+    Written Cantonese serves a large population across many everyday
+    settings — shop signs, advertisements, graffiti across Hong Kong's
+    streets.
+  hero_sub_2: |
+    Cantonese uses many characters, such as 冇, 嘅 and 嘢, that rarely appear
+    in Traditional Chinese as used in Taiwan. There is currently a shortage
+    of datasets for OCR, and model performance is poor. This project builds
+    an image dataset — Cantonese characters, words and sentences — for model
+    evaluation and training.
   hero_badge_size: |
     4,930 images
 
@@ -486,14 +491,6 @@ en:
     Written Cantonese uses characters mainstream OCR never learned.
   why_gap_heading: |
     Gaps in existing resources
-  why_gap_intro: |
-    Written Cantonese relies heavily on characters like
-    <span class="cjk-big">嘅, 咗, 冇, 喺, 𨋢</span> — ones that rarely appear
-    in formal writing or in Traditional Chinese as used in Taiwan, yet serve a
-    large population across everyday settings: shop signs, advertisements,
-    graffiti across Hong Kong's streets. These characters barely appear in
-    mainstream OCR training data, and models struggle to read them. Surveying
-    what already exists turned up three gaps:
   why_gap_li1: |
     <strong>No image dataset.</strong>
     There are twenty-odd Cantonese datasets on HuggingFace, all of them text or

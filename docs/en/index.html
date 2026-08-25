@@ -26,7 +26,7 @@
   <div>
     <p class="sidebar__eyebrow">OCF · AI RESEARCH INTERNSHIP 2026</p>
     <h1 class="sidebar__title">Cantonese OCR Benchmark</h1>
-    <p class="sidebar__subtitle">粵語 OCR 評測資料集 · Yu-Tang Yu</p>
+    <p class="sidebar__subtitle">粵文 OCR 評測資料集 · Yu-Tang Yu</p>
   </div>
 
   <nav class="sidebar__nav">
@@ -50,9 +50,16 @@
 <header class="hero">
   <h1>A Cantonese OCR benchmark</h1>
   <p class="sub">
-    Mainstream OCR cannot read the characters used in written Cantonese, and the
-Cantonese datasets that exist are all text or audio. This project builds an
-image-based Cantonese OCR benchmark and opens the pipeline that generates it.
+    Written Cantonese serves a large population across many everyday
+settings — shop signs, advertisements, graffiti across Hong Kong's
+streets.
+  </p>
+  <p class="sub">
+    Cantonese uses many characters, such as 冇, 嘅 and 嘢, that rarely appear
+in Traditional Chinese as used in Taiwan. There is currently a shortage
+of datasets for OCR, and model performance is poor. This project builds
+an image dataset — Cantonese characters, words and sentences — for model
+evaluation and training.
   </p>
   <div class="badges">
     <a class="badge" href="https://huggingface.co/datasets/trickster-2005/cantonese-benchmark-synth">HuggingFace ↗</a>
@@ -67,15 +74,6 @@ image-based Cantonese OCR benchmark and opens the pipeline that generates it.
   <p class="lead">Written Cantonese uses characters mainstream OCR never learned.</p>
 
   <h3>Gaps in existing resources</h3>
-  <p>
-    Written Cantonese relies heavily on characters like
-<span class="cjk-big">嘅, 咗, 冇, 喺, 𨋢</span> — ones that rarely appear
-in formal writing or in Traditional Chinese as used in Taiwan, yet serve a
-large population across everyday settings: shop signs, advertisements,
-graffiti across Hong Kong's streets. These characters barely appear in
-mainstream OCR training data, and models struggle to read them. Surveying
-what already exists turned up three gaps:
-  </p>
   <ul>
     <li>
       <strong>No image dataset.</strong>
