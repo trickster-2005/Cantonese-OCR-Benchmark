@@ -245,6 +245,13 @@
     {{results_intro}}
   </p>
 
+  <dl class="metric-legend">
+    <div><dt>CER</dt><dd>{{results_legend_cer}}</dd></div>
+    <div><dt>ACC</dt><dd>{{results_legend_acc}}</dd></div>
+    <div><dt>1−NED</dt><dd>{{results_legend_ned}}</dd></div>
+    <div><dt>{{results_legend_tier_label}}</dt><dd>{{results_legend_tier}}</dd></div>
+  </dl>
+
   <div class="tbl-scroll">
   <table>
     <thead><tr>
@@ -271,9 +278,11 @@
   </p>
 
   <h3>{{results_observation_heading}}</h3>
-  <p>
-    {{results_observation_text}}
-  </p>
+  <ul>
+    <li>{{results_obs1}}</li>
+    <li>{{results_obs2}}</li>
+    <li>{{results_obs3}}</li>
+  </ul>
 </section>
 
 <section id="next">

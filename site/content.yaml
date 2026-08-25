@@ -105,7 +105,7 @@ zh:
     粵語 OCR 評測資料集
   hero_sub: |
     粵語書寫用的字，主流 OCR 認不得；而現有的粵語資料集，全是文字與語音。
-    本專案製作一份影像形式的粵語 OCR 評測資料集，並公開整套生成管線。
+    本專案製作一份影像形式的粵語 OCR 評測資料集，並公開整套生成流程。
   hero_badge_size: |
     4,930 張
 
@@ -122,7 +122,7 @@ zh:
     這些字在主流 OCR 的訓練資料中極少出現，模型辨識起來相當吃力。
     我們在盤點現有資源時發現三件事：
   why_gap_li1: |
-    <strong>影像資料集付之闕如。</strong>
+    <strong>影像資料集較少。</strong>
     HuggingFace 上搜得到的粵語資料集有二十多個，內容都是純文字或語音，
     目前未找到以影像形式提供的粵語 OCR 資料集。
   why_gap_li2: |
@@ -148,10 +148,10 @@ zh:
     同一個字同時出現在單字層與句子層，可以分辨模型是「看不清楚」
     還是「知道形狀但被語言習慣蓋過去」。
   why_contrib_li3: |
-    <strong>授權乾淨的開源生成管線。</strong>
-    語料與字型全部採用明確授權的來源，產出的資料集可以公開散布。
+    <strong>授權乾淨的開源生成流程。</strong>
+    語料與字型全部採用明確授權的來源，產出的資料集可以公開發表。
   why_contrib_li4: |
-    <strong>兩個視覺語言模型的基線分數。</strong>
+    <strong>兩個視覺語言模型的測試分數。</strong>
     提供後續研究比較的起點。
 
   # ---- 02 製作方式 ----
@@ -168,7 +168,7 @@ zh:
   how_li4: |
     <strong>增強</strong>：旋轉、透視、彈性形變、筆畫粗細、模糊、雜訊、JPEG 壓縮痕跡，分四個難度等級。
   how_li5: |
-    <strong>品質防線</strong>：渲染前檢查字型是否真的收錄該字形，渲染後檢查可讀性，避免產出「空白方框但標註寫著某字」這種汙染標註的樣本。
+    <strong>品質檢查</strong>：渲染前檢查字型是否真的收錄該字形，渲染後檢查可讀性，避免產出「空白方框但標註寫著某字」這種汙染標註的樣本。
   how_li6: |
     <strong>可重現</strong>：固定亂數種子，同一份語料產出逐位元相同的結果。
   how_more: |
@@ -321,15 +321,44 @@ zh:
     擴展區字 ACC
   results_eval_note: |
     完整 4,930 張影像 × 2 個模型，共 9,860 筆，全數成功執行，無失敗樣本。
+
+  # 表格上方的指標圖例，白話解釋每欄在算什麼
+  results_legend_cer: |
+    字元錯誤率。把模型答案跟正確答案逐字比對，錯的字元佔全部字元的比例。
+    100 個字錯 30 個就是 30%，數字越低代表認得越準。
+  results_legend_acc: |
+    整句正確率。整行文字要一字不漏、一字不錯才算對，錯一個字整行就算不對，
+    所以通常比「1 減 CER」看起來嚴格很多。
+  results_legend_ned: |
+    正規化編輯相似度。概念跟 CER 接近，但抵消了文字長度的影響，短句和長句
+    比較起來更公平，是 OCR 競賽（ICDAR）慣用的指標，數字越高越好。
+  results_legend_tier_label: |
+    分層 ACC
+  results_legend_tier: |
+    同一種整句正確率，只是分開只算「一個字」「一個詞」「一句話」或
+    「Unicode 擴展區罕見字」這幾種樣本，看模型在哪種情境比較容易出錯。
+
   results_observation_heading: |
     觀察
-  results_observation_text: |
+  results_obs1: |
     兩個模型在擴展區字（168 張樣本）上正確率都是 0%，字形完全認不出來。
     粵語常用字也有類似分化：<code>冇</code> 單字層兩個模型都是 0/7 全錯，
     句子層依然接近 0%（InternVL3.5 0/99、Qwen3-VL 7/99），上下文救不回來，
     是純粹的視覺辨識失敗。但 <code>嘅</code> 同樣單字層 0/7，句子層卻回升到
     三成多（InternVL3.5），代表模型雖然認不出這個字的形狀，卻能靠語言記憶
     把常見虛詞「猜」回來。同一種視覺缺陷會不會被語言先驗補償，因字而異。
+  results_obs2: |
+    兩個模型的錯法也不一樣。單字層測 <code>冇</code> 時，Qwen3-VL 每次給的
+    答案都不同（渡、浸、侵……），像是在瞎猜；InternVL3.5 幾乎每次都固定
+    回答同一個形近字，錯得有規律。這代表 InternVL3.5 的失敗更像是「認錯字」
+    而不是「認不出字」——一致性的錯誤，理論上比隨機亂猜更容易靠額外訓練
+    資料修正回來。
+  results_obs3: |
+    整句正確率並不是隨文字變長單調下降。以 InternVL3.5 為例，單字層 25.6%、
+    詞彙層卻回升到 41.1%、短句層再降到 20.9%——詞彙層反而是三層裡最高的。
+    推測是 2–4 字的常見詞組合能給模型一個可以辨認的固定搭配，孤立的單一
+    字形反而沒有這種線索；但句子一長，累積出錯的機會也跟著變多，ACC
+    自然被拉低。
 
   # ---- 06 未來展望 ----
   next_h2: |
@@ -674,9 +703,29 @@ en:
     ACC ext. blocks
   results_eval_note: |
     All 4,930 images × 2 models, 9,860 runs total, completed with zero failures.
+
+  results_legend_cer: |
+    Character error rate. Compares the model's answer to the correct one
+    character by character; CER is the share that are wrong. 30 wrong out of
+    100 characters is 30%. Lower is better.
+  results_legend_acc: |
+    Exact match. The whole line has to match exactly, character for character.
+    Miss even one character and the line counts as wrong, so ACC is usually
+    much stricter than "1 minus CER" would suggest.
+  results_legend_ned: |
+    Normalised edit similarity. Similar idea to CER, but corrected for text
+    length so short and long samples are compared fairly. This is the
+    convention used in ICDAR competitions. Higher is better.
+  results_legend_tier_label: |
+    ACC by tier
+  results_legend_tier: |
+    The same exact-match accuracy, broken out by what kind of sample it is —
+    a single character, a short word, a full sentence, or a rare Unicode
+    Extension character — to see where each model actually falls apart.
+
   results_observation_heading: |
     Observations
-  results_observation_text: |
+  results_obs1: |
     Both models score 0% on the 168 extension-block samples — they cannot read
     the glyph shapes at all. Common Cantonese characters split into two
     patterns. <code>冇</code> scores 0/7 at the character tier for both models
@@ -686,6 +735,21 @@ en:
     sentences (InternVL3.5) — the model cannot read the shape, yet can guess a
     common function word from language memory. Whether the language prior
     compensates for a visual gap turns out to depend on the character.
+  results_obs2: |
+    The two models also fail differently. Asked to read <code>冇</code> in
+    isolation, Qwen3-VL gives a different wrong answer almost every time (渡,
+    浸, 侵…) — closer to guessing at random. InternVL3.5 almost always returns
+    the same visually similar character instead — a consistent, wrong
+    preference rather than noise. A consistent error is arguably easier to fix
+    with targeted training data than a random one.
+  results_obs3: |
+    Exact-match accuracy does not simply fall as text gets longer. For
+    InternVL3.5, character-tier ACC is 25.6%, word-tier climbs to 41.1%, then
+    sentence-tier drops back to 20.9% — the word tier is the highest of the
+    three. A plausible reason: common 2–4 character combinations give the
+    model a recognisable pattern to latch onto that an isolated character does
+    not, but a longer sentence accumulates more chances to go wrong, pulling
+    ACC back down.
 
   # ---- 06 Outlook ----
   next_h2: |

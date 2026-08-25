@@ -288,6 +288,21 @@ convention: CER (character error rate, lower is better), ACC (exact sequence
 match), 1−NED (normalised edit similarity).
   </p>
 
+  <dl class="metric-legend">
+    <div><dt>CER</dt><dd>Character error rate. Compares the model's answer to the correct one
+character by character; CER is the share that are wrong. 30 wrong out of
+100 characters is 30%. Lower is better.</dd></div>
+    <div><dt>ACC</dt><dd>Exact match. The whole line has to match exactly, character for character.
+Miss even one character and the line counts as wrong, so ACC is usually
+much stricter than "1 minus CER" would suggest.</dd></div>
+    <div><dt>1−NED</dt><dd>Normalised edit similarity. Similar idea to CER, but corrected for text
+length so short and long samples are compared fairly. This is the
+convention used in ICDAR competitions. Higher is better.</dd></div>
+    <div><dt>ACC by tier</dt><dd>The same exact-match accuracy, broken out by what kind of sample it is —
+a single character, a short word, a full sentence, or a rare Unicode
+Extension character — to see where each model actually falls apart.</dd></div>
+  </dl>
+
   <div class="tbl-scroll">
   <table>
     <thead><tr>
@@ -314,8 +329,8 @@ match), 1−NED (normalised edit similarity).
   </p>
 
   <h3>Observations</h3>
-  <p>
-    Both models score 0% on the 168 extension-block samples — they cannot read
+  <ul>
+    <li>Both models score 0% on the 168 extension-block samples — they cannot read
 the glyph shapes at all. Common Cantonese characters split into two
 patterns. <code>冇</code> scores 0/7 at the character tier for both models
 and stays near zero in sentences too (InternVL3.5 0/99, Qwen3-VL 7/99):
@@ -323,8 +338,21 @@ context does not rescue it, a pure visual failure. <code>嘅</code> also
 scores 0/7 in isolation, but recovers to roughly a third correct in
 sentences (InternVL3.5) — the model cannot read the shape, yet can guess a
 common function word from language memory. Whether the language prior
-compensates for a visual gap turns out to depend on the character.
-  </p>
+compensates for a visual gap turns out to depend on the character.</li>
+    <li>The two models also fail differently. Asked to read <code>冇</code> in
+isolation, Qwen3-VL gives a different wrong answer almost every time (渡,
+浸, 侵…) — closer to guessing at random. InternVL3.5 almost always returns
+the same visually similar character instead — a consistent, wrong
+preference rather than noise. A consistent error is arguably easier to fix
+with targeted training data than a random one.</li>
+    <li>Exact-match accuracy does not simply fall as text gets longer. For
+InternVL3.5, character-tier ACC is 25.6%, word-tier climbs to 41.1%, then
+sentence-tier drops back to 20.9% — the word tier is the highest of the
+three. A plausible reason: common 2–4 character combinations give the
+model a recognisable pattern to latch onto that an isolated character does
+not, but a longer sentence accumulates more chances to go wrong, pulling
+ACC back down.</li>
+  </ul>
 </section>
 
 <section id="next">
