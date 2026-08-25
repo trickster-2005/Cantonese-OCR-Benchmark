@@ -29,7 +29,7 @@ shared:
     hf: https://huggingface.co/datasets/trickster-2005/cantonese-benchmark-synth
     gh: https://github.com/trickster-2005/Cantonese-OCR-Benchmark
     wikipedia: https://zh-yue.wikipedia.org/
-    hkcancor: https://pycantonese.org/data.html
+    hkcancor: https://docs.pycantonese.org/stable/data.html#hkcancor
     rime: https://github.com/rime/rime-cantonese
 
   sidebar_eyebrow: |

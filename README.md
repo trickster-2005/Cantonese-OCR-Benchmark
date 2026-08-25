@@ -147,7 +147,7 @@ are tagged in the metadata via `minimal_pair_with`:
 | Source | Licence | Role | Measured core-Cantonese density |
 |---|---|---|---|
 | [Cantonese Wikipedia](https://huggingface.co/datasets/jed351/cantonese-wikipedia) | **CC BY-SA 4.0** | sentences | 5.53% |
-| [HKCanCor](https://pycantonese.org/data.html) | CC BY 4.0 | sentences | 7.80% |
+| [HKCanCor](https://docs.pycantonese.org/stable/data.html#hkcancor) | CC BY 4.0 | sentences | 7.80% |
 | [rime-cantonese](https://github.com/rime/rime-cantonese) | CC BY 4.0 | characters, words | lexicon |
 
 Density was measured over the characters 嘅咗冇哋喺乜嘢嚟啲嗰咩㗎, which do not
@@ -554,7 +554,7 @@ output/
 | 來源 | 授權 | 角色 | 實測核心粵字密度 |
 |---|---|---|---|
 | [粵語維基百科](https://huggingface.co/datasets/jed351/cantonese-wikipedia) | **CC BY-SA 4.0** | 句子 | 5.53% |
-| [HKCanCor](https://pycantonese.org/data.html) | CC BY 4.0 | 句子 | 7.80% |
+| [HKCanCor](https://docs.pycantonese.org/stable/data.html#hkcancor) | CC BY 4.0 | 句子 | 7.80% |
 | [rime-cantonese](https://github.com/rime/rime-cantonese) | CC BY 4.0 | 字、詞 | 詞庫 |
 
 密度以 嘅咗冇哋喺乜嘢嚟啲嗰咩㗎 這組字測量，它們不出現在書面中文裡。

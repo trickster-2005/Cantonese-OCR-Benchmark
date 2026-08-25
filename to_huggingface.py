@@ -305,7 +305,7 @@ Standard Chinese" is the phenomenon under test.
 ### How it was built
 
 Corpora: [Cantonese Wikipedia](https://huggingface.co/datasets/jed351/cantonese-wikipedia)
-(CC BY-SA 4.0), [HKCanCor](https://pycantonese.org/data.html) (CC BY 4.0),
+(CC BY-SA 4.0), [HKCanCor](https://docs.pycantonese.org/stable/data.html#hkcancor) (CC BY 4.0),
 [rime-cantonese](https://github.com/rime/rime-cantonese) (CC BY 4.0).
 
 The {cs.get('total', 0)}-character Cantonese set is derived by subtracting the
@@ -417,7 +417,7 @@ prompt 刻意不提「繁體中文」，因為「粵語字被糾正成書面中�
 ### 製作方式
 
 語料：[粵語維基百科](https://huggingface.co/datasets/jed351/cantonese-wikipedia)
-（CC BY-SA 4.0）、[HKCanCor](https://pycantonese.org/data.html)（CC BY 4.0）、
+（CC BY-SA 4.0）、[HKCanCor](https://docs.pycantonese.org/stable/data.html#hkcancor)（CC BY 4.0）、
 [rime-cantonese](https://github.com/rime/rime-cantonese)（CC BY 4.0）。
 
 {cs.get('total', 0)} 個粵語特有字的字表，是從語料字頻扣掉兩岸港的標準字表與日文專用漢字
