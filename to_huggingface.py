@@ -41,8 +41,13 @@ def load_report(out_dir):
     return json.load(open(path, encoding="utf-8")) if os.path.exists(path) else {}
 
 
-def load_eval(out_dir):
-    """讀評測結果並彙總。沒跑分就回傳 None，dataset card 會標成待補。"""
+def load_eval(out_dir, expected_per_model=None):
+    """讀評測結果並彙總。沒跑分就回傳 None，dataset card 會標成待補。
+
+    刻意做成「必須明確要求才帶跑分」（--with-eval）：評測是數小時的工作，
+    中途讀到只跑一半的 CSV 會把不完整的平均值寫進 dataset card，
+    而那個數字看起來跟跑完的一模一樣，沒有任何地方會提示它是錯的。
+    """
     import csv
     from collections import defaultdict
 
@@ -465,6 +470,9 @@ def main():
                     help="HF repo id，只用於 dataset card 內的範例")
     ap.add_argument("--push", default=None,
                     help="直接上傳到這個 repo id（需要 huggingface_hub 與登入）")
+    ap.add_argument("--with-eval", action="store_true",
+                    help="把 eval_results.csv 的分數寫進 dataset card。"
+                         "評測沒跑完就加這個旗標，會寫進不完整的平均值")
     args = ap.parse_args()
 
     out_dir = os.path.abspath(args.out)
@@ -473,9 +481,14 @@ def main():
 
     recs = load_records(out_dir)
     report = load_report(out_dir)
-    evals = load_eval(out_dir)
-    print(f"[hf] 讀入 {len(recs):,} 筆"
-          f"{'，含評測結果' if evals else '，尚無評測結果（card 會標 TBD）'}")
+    evals = load_eval(out_dir) if args.with_eval else None
+    if evals:
+        note = "，含評測結果"
+    elif os.path.exists(os.path.join(out_dir, "eval_results.csv")):
+        note = "，跑分結果存在但未帶入（要帶請加 --with-eval），card 標 TBD"
+    else:
+        note = "，尚無評測結果（card 會標 TBD）"
+    print(f"[hf] 讀入 {len(recs):,} 筆{note}")
 
     pq_path = os.path.join(dest, "data", "test-00000-of-00001.parquet")
     size, rows = build_parquet(recs, out_dir, pq_path)
