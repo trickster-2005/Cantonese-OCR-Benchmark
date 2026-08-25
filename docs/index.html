@@ -274,11 +274,6 @@ HuggingFace 上搜得到的粵語資料集有二十多個，內容都是純文�
 ACC（整句完全正確率）、1−NED（正規化編輯相似度）。
   </p>
 
-  <div class="pending">
-    <div class="tick">評測進行中</div>
-    <p>Qwen3-VL 4B 與 InternVL3.5 4B 的完整結果正在產出，下列表格與圖表將於完成後填入。</p>
-  </div>
-
   <div class="tbl-scroll">
   <table>
     <thead><tr>
@@ -289,23 +284,29 @@ ACC（整句完全正確率）、1−NED（正規化編輯相似度）。
     <tbody>
       <tr>
         <td><span class="dot" style="background:var(--accent-qwen-4b)"></span>Qwen3-VL 4B</td>
-        <td class="tbd num">待補</td><td class="tbd num">待補</td><td class="tbd num">待補</td>
-        <td class="tbd num">待補</td><td class="tbd num">待補</td><td class="tbd num">待補</td>
+        <td class="num">70.1%</td><td class="num">17.5%</td><td class="num">30.0%</td>
+        <td class="num">16.7%</td><td class="num">5.7%</td><td class="num">0.0%</td>
       </tr>
       <tr>
         <td><span class="dot" style="background:var(--accent-internvl)"></span>InternVL3.5 4B</td>
-        <td class="tbd num">待補</td><td class="tbd num">待補</td><td class="tbd num">待補</td>
-        <td class="tbd num">待補</td><td class="tbd num">待補</td><td class="tbd num">待補</td>
+        <td class="num">34.1%</td><td class="num">29.3%</td><td class="num">66.4%</td>
+        <td class="num">25.6%</td><td class="num">20.9%</td><td class="num">0.0%</td>
       </tr>
     </tbody>
   </table>
   </div>
+  <p class="small muted">
+    完整 4,930 張影像 × 2 個模型，共 9,860 筆，全數成功執行，無失敗樣本。
+  </p>
 
-  <h3>先導觀察</h3>
+  <h3>觀察</h3>
   <p>
-    小量測試已經看得出系統性的替換行為。兩個模型都把粵語字 <code>㓎</code>
-讀成字形相近的標準漢字，InternVL3.5 更是每一次都固定輸出 <code>浸</code>。
-這不是隨機辨錯，而是穩定的錯誤偏好。
+    兩個模型在擴展區字（168 張樣本）上正確率都是 0%，字形完全認不出來。
+粵語常用字也有類似分化：<code>冇</code> 單字層兩個模型都是 0/7 全錯，
+句子層依然接近 0%（InternVL3.5 0/99、Qwen3-VL 7/99），上下文救不回來，
+是純粹的視覺辨識失敗。但 <code>嘅</code> 同樣單字層 0/7，句子層卻回升到
+三成多（InternVL3.5），代表模型雖然認不出這個字的形狀，卻能靠語言記憶
+把常見虛詞「猜」回來。同一種視覺缺陷會不會被語言先驗補償，因字而異。
   </p>
 </section>
 

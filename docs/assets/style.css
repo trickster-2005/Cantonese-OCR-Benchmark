@@ -303,19 +303,6 @@ td.num, th.num { text-align: right; font-family: var(--font-mono);
 .empty { padding: 34px 0; color: var(--color-muted); text-align: center;
          grid-column: 1 / -1; }
 
-/* ---------------------------------------------------------------- 待補 */
-
-.pending {
-  border: 1px dashed var(--color-border); border-radius: 9px;
-  padding: 22px; text-align: center; color: var(--color-muted);
-  background: var(--color-surface); margin: 20px 0;
-}
-.pending .tick {
-  font: 600 11px/1 var(--font-mono); text-transform: uppercase;
-  letter-spacing: 0.1em; color: var(--accent-warm);
-}
-.pending p { margin: 10px auto 0; max-width: 54ch; font-size: 14px; }
-td.tbd { color: #a8b2bd; font-family: var(--font-mono); font-size: 12.5px; }
 .dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%;
        margin-right: 7px; vertical-align: -1px; }
 

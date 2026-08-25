@@ -293,6 +293,57 @@ Three deliberate choices:
 - **Results are written per row and the run is resumable.** A full two-model run
   is hours of work.
 
+#### Baseline results
+
+Two 4B-parameter vision-language models on Ollama (`qwen3-vl:4b`,
+`internvl3.5:4b-q4_k_m`), all 4,930 images each, on an NVIDIA L40S. Both runs
+completed with zero failures (9,860 rows total).
+
+| Model | CER ↓ | ACC ↑ | 1−NED ↑ | ACC char | ACC word | ACC sentence | ACC ext. blocks |
+|---|---|---|---|---|---|---|---|
+| Qwen3-VL 4B | 70.1% | 17.5% | 30.0% | 16.7% | 31.2% | 5.7% | 0.0% |
+| InternVL3.5 4B | 34.1% | 29.3% | 66.4% | 25.6% | 41.1% | 20.9% | 0.0% |
+
+Both models score **0% on all 168 extension-block samples** — regardless of
+context, they cannot read a glyph shape they were never trained on.
+
+The character/sentence split reveals two distinct failure modes, not one. For
+each of the 15 minimal pairs, here is how often the Cantonese character
+actually appears in the model's output, isolated (character tier, exact match)
+versus embedded in a sentence (any occurrence, InternVL3.5 4B):
+
+| Pair | Character tier | Sentence tier |
+|---|---|---|
+| 係→系 | 14/14 | 929/1004 |
+| 唔→不 | 6/7 | 252/290 |
+| 睇→看 | 7/7 | 47/60 |
+| 諗→想 | 6/7 | 25/27 |
+| 嘅→既 | 0/7 | 189/559 |
+| 咗→左 | 0/7 | 43/163 |
+| 啲→的 | 0/7 | 126/201 |
+| 乜→什 | 0/7 | 40/60 |
+| 喺→係 | 0/7 | 20/222 |
+| 佢→但 | 0/7 | 16/282 |
+| 嗰→個 | 0/7 | 6/147 |
+| 嘢→野 | 0/7 | 7/123 |
+| 哋→地 | 0/7 | 4/75 |
+| 嚟→來 | 1/7 | 1/27 |
+| **冇→有** | **0/7** | **0/99** |
+
+Some characters (係, 唔, 睇, 諗) score well at both tiers — the model genuinely
+recognises them. Others fail at the character tier but partially recover in
+sentences (嘅 jumps from 0/7 to 34%): the model cannot read the shape but can
+guess a common function word from context. `冇` is the extreme case — 0/7 in
+isolation, 0/99 in sentences, with the InternVL3.5 pilot showing every reading
+replaced by `有`. Context does not rescue it at all, which means this
+particular failure is not a language-prior override — it is a straightforward
+visual one; the model never learned the shape in the first place. Only a
+benchmark that tests both tiers can tell these two failure modes apart.
+
+Reproduce this table with `python analyze_eval.py` after running `evaluate.py`.
+- **Results are written per row and the run is resumable.** A full two-model run
+  is hours of work.
+
 ### Licensing
 
 | Component | Licence |
@@ -619,6 +670,50 @@ python evaluate.py                   # 完整執行，可續跑
 - **後處理只清格式雜訊**，不做任何模型專屬處理。原始輸出保留在 `prediction_raw`，
   任何人都能用別的規則重算。這是 OCR 評測結果無法互相比較的最大單一原因。
 - **逐筆寫檔、可續跑。** 兩個模型跑完是數小時的工作。
+
+#### 基線分數
+
+兩個 4B 參數的視覺語言模型，透過 Ollama（`qwen3-vl:4b`、`internvl3.5:4b-q4_k_m`），
+各自跑完整 4,930 張，在 NVIDIA L40S 上執行。兩個模型都全數成功、零失敗（共 9,860 筆）。
+
+| 模型 | CER ↓ | ACC ↑ | 1−NED ↑ | 單字層 ACC | 詞彙層 ACC | 短句層 ACC | 擴展區字 ACC |
+|---|---|---|---|---|---|---|---|
+| Qwen3-VL 4B | 70.1% | 17.5% | 30.0% | 16.7% | 31.2% | 5.7% | 0.0% |
+| InternVL3.5 4B | 34.1% | 29.3% | 66.4% | 25.6% | 41.1% | 20.9% | 0.0% |
+
+兩個模型在**全部 168 張擴展區字樣本上正確率都是 0%**——不管有沒有上下文，
+沒訓練過的字形就是認不出來。
+
+單字層／句子層的對照顯示的是兩種不同的失敗模式，不是單一種。以下是 15 組最小
+對立對中，粵語字實際出現在模型輸出裡的比例：單字層（完全匹配）vs 嵌在句子裡
+（任意位置出現，InternVL3.5 4B 的數據）：
+
+| 對立對 | 單字層 | 句子層 |
+|---|---|---|
+| 係→系 | 14/14 | 929/1004 |
+| 唔→不 | 6/7 | 252/290 |
+| 睇→看 | 7/7 | 47/60 |
+| 諗→想 | 6/7 | 25/27 |
+| 嘅→既 | 0/7 | 189/559 |
+| 咗→左 | 0/7 | 43/163 |
+| 啲→的 | 0/7 | 126/201 |
+| 乜→什 | 0/7 | 40/60 |
+| 喺→係 | 0/7 | 20/222 |
+| 佢→但 | 0/7 | 16/282 |
+| 嗰→個 | 0/7 | 6/147 |
+| 嘢→野 | 0/7 | 7/123 |
+| 哋→地 | 0/7 | 4/75 |
+| 嚟→來 | 1/7 | 1/27 |
+| **冇→有** | **0/7** | **0/99** |
+
+有些字（係、唔、睇、諗）兩層都表現好，代表模型真的認得。有些字單字層失敗、
+句子層卻部分回升（嘅 從 0/7 回升到 34%）：模型認不出字形，但能靠上下文猜出
+常見虛詞。`冇` 是最極端的案例——單字層 0/7、句子層 0/99，小量測試裡每一次都
+被讀成 `有`。上下文完全救不回來，代表這個失敗不是語言先驗覆蓋，而是純粹的
+視覺辨識問題——模型一開始就沒學過這個字的形狀。只有同時測兩層的評測，
+才分得出這兩種失敗模式。
+
+用 `python analyze_eval.py`（在跑完 `evaluate.py` 之後）可以重新算出這份表格。
 
 ### 授權
 

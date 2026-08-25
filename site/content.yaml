@@ -42,6 +42,35 @@ shared:
   licence_font: |
     SIL OFL 1.1
 
+  # 評測結果數字，兩個語言版本共用（純數字沒有翻譯問題）。
+  # 來源：evaluate.py 在完整 4,930 張影像上跑出來的 output/eval_results.csv，
+  # 用 analyze_eval.py 彙總。要更新的話重跑評測、重跑 analyze_eval.py，
+  # 把新數字貼過來就好。
+  qwen_cer: |
+    70.1%
+  qwen_acc: |
+    17.5%
+  qwen_ned: |
+    30.0%
+  qwen_acc_char: |
+    16.7%
+  qwen_acc_sentence: |
+    5.7%
+  qwen_acc_ext: |
+    0.0%
+  intern_cer: |
+    34.1%
+  intern_acc: |
+    29.3%
+  intern_ned: |
+    66.4%
+  intern_acc_char: |
+    25.6%
+  intern_acc_sentence: |
+    20.9%
+  intern_acc_ext: |
+    0.0%
+
 # ----------------------------------------------------------------------------
 
 zh:
@@ -282,10 +311,6 @@ zh:
     兩個同為 4B 參數的視覺語言模型，在 NVIDIA L40S 上以相同 prompt
     與解碼參數跑完整 4,930 張。指標採 OCR 慣例：CER（字元錯誤率，越低越好）、
     ACC（整句完全正確率）、1−NED（正規化編輯相似度）。
-  results_pending_tick: |
-    評測進行中
-  results_pending_text: |
-    Qwen3-VL 4B 與 InternVL3.5 4B 的完整結果正在產出，下列表格與圖表將於完成後填入。
   results_th_model: |
     模型
   results_th_acc_char: |
@@ -294,14 +319,17 @@ zh:
     短句層 ACC
   results_th_acc_ext: |
     擴展區字 ACC
-  results_tbd: |
-    待補
+  results_eval_note: |
+    完整 4,930 張影像 × 2 個模型，共 9,860 筆，全數成功執行，無失敗樣本。
   results_observation_heading: |
-    先導觀察
+    觀察
   results_observation_text: |
-    小量測試已經看得出系統性的替換行為。兩個模型都把粵語字 <code>㓎</code>
-    讀成字形相近的標準漢字，InternVL3.5 更是每一次都固定輸出 <code>浸</code>。
-    這不是隨機辨錯，而是穩定的錯誤偏好。
+    兩個模型在擴展區字（168 張樣本）上正確率都是 0%，字形完全認不出來。
+    粵語常用字也有類似分化：<code>冇</code> 單字層兩個模型都是 0/7 全錯，
+    句子層依然接近 0%（InternVL3.5 0/99、Qwen3-VL 7/99），上下文救不回來，
+    是純粹的視覺辨識失敗。但 <code>嘅</code> 同樣單字層 0/7，句子層卻回升到
+    三成多（InternVL3.5），代表模型雖然認不出這個字的形狀，卻能靠語言記憶
+    把常見虛詞「猜」回來。同一種視覺缺陷會不會被語言先驗補償，因字而異。
 
   # ---- 06 未來展望 ----
   next_h2: |
@@ -636,10 +664,6 @@ en:
     NVIDIA L40S with identical prompts and decoding parameters. Metrics follow OCR
     convention: CER (character error rate, lower is better), ACC (exact sequence
     match), 1−NED (normalised edit similarity).
-  results_pending_tick: |
-    Evaluation in progress
-  results_pending_text: |
-    Full results for Qwen3-VL 4B and InternVL3.5 4B are being generated; the table and chart below will be filled in once the run completes.
   results_th_model: |
     Model
   results_th_acc_char: |
@@ -648,15 +672,20 @@ en:
     ACC sentence
   results_th_acc_ext: |
     ACC ext. blocks
-  results_tbd: |
-    TBD
+  results_eval_note: |
+    All 4,930 images × 2 models, 9,860 runs total, completed with zero failures.
   results_observation_heading: |
-    Early observation
+    Observations
   results_observation_text: |
-    A small pilot already shows systematic substitution. Both models read the
-    Cantonese character <code>㓎</code> as a visually similar standard character,
-    and InternVL3.5 returns <code>浸</code> every single time. That is not random
-    error but a stable wrong preference.
+    Both models score 0% on the 168 extension-block samples — they cannot read
+    the glyph shapes at all. Common Cantonese characters split into two
+    patterns. <code>冇</code> scores 0/7 at the character tier for both models
+    and stays near zero in sentences too (InternVL3.5 0/99, Qwen3-VL 7/99):
+    context does not rescue it, a pure visual failure. <code>嘅</code> also
+    scores 0/7 in isolation, but recovers to roughly a third correct in
+    sentences (InternVL3.5) — the model cannot read the shape, yet can guess a
+    common function word from language memory. Whether the language prior
+    compensates for a visual gap turns out to depend on the character.
 
   # ---- 06 Outlook ----
   next_h2: |

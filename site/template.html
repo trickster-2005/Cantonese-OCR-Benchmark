@@ -245,11 +245,6 @@
     {{results_intro}}
   </p>
 
-  <div class="pending">
-    <div class="tick">{{results_pending_tick}}</div>
-    <p>{{results_pending_text}}</p>
-  </div>
-
   <div class="tbl-scroll">
   <table>
     <thead><tr>
@@ -260,17 +255,20 @@
     <tbody>
       <tr>
         <td><span class="dot" style="background:var(--accent-qwen-4b)"></span>Qwen3-VL 4B</td>
-        <td class="tbd num">{{results_tbd}}</td><td class="tbd num">{{results_tbd}}</td><td class="tbd num">{{results_tbd}}</td>
-        <td class="tbd num">{{results_tbd}}</td><td class="tbd num">{{results_tbd}}</td><td class="tbd num">{{results_tbd}}</td>
+        <td class="num">{{shared.qwen_cer}}</td><td class="num">{{shared.qwen_acc}}</td><td class="num">{{shared.qwen_ned}}</td>
+        <td class="num">{{shared.qwen_acc_char}}</td><td class="num">{{shared.qwen_acc_sentence}}</td><td class="num">{{shared.qwen_acc_ext}}</td>
       </tr>
       <tr>
         <td><span class="dot" style="background:var(--accent-internvl)"></span>InternVL3.5 4B</td>
-        <td class="tbd num">{{results_tbd}}</td><td class="tbd num">{{results_tbd}}</td><td class="tbd num">{{results_tbd}}</td>
-        <td class="tbd num">{{results_tbd}}</td><td class="tbd num">{{results_tbd}}</td><td class="tbd num">{{results_tbd}}</td>
+        <td class="num">{{shared.intern_cer}}</td><td class="num">{{shared.intern_acc}}</td><td class="num">{{shared.intern_ned}}</td>
+        <td class="num">{{shared.intern_acc_char}}</td><td class="num">{{shared.intern_acc_sentence}}</td><td class="num">{{shared.intern_acc_ext}}</td>
       </tr>
     </tbody>
   </table>
   </div>
+  <p class="small muted">
+    {{results_eval_note}}
+  </p>
 
   <h3>{{results_observation_heading}}</h3>
   <p>
