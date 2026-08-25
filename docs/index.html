@@ -31,11 +31,11 @@
 
   <nav class="sidebar__nav">
     <a class="toc-link is-active" href="#why"><span class="toc-num">01</span><span>動機與目標</span></a>
-    <a class="toc-link" href="#dataset"><span class="toc-num">02</span><span>資料集內容</span></a>
-    <a class="toc-link" href="#results"><span class="toc-num">03</span><span>評測結果</span></a>
-    <a class="toc-link" href="#how"><span class="toc-num">04</span><span>製作方式</span></a>
-    <a class="toc-link" href="#next"><span class="toc-num">05</span><span>展望</span></a>
-    <a class="toc-link" href="#samples"><span class="toc-num">06</span><span>樣本預覽</span></a>
+    <a class="toc-link" href="#how"><span class="toc-num">02</span><span>製作方式</span></a>
+    <a class="toc-link" href="#dataset"><span class="toc-num">03</span><span>資料集內容</span></a>
+    <a class="toc-link" href="#samples"><span class="toc-num">04</span><span>資料集預覽</span></a>
+    <a class="toc-link" href="#results"><span class="toc-num">05</span><span>評測結果</span></a>
+    <a class="toc-link" href="#next"><span class="toc-num">06</span><span>未來展望</span></a>
   </nav>
 
   <div class="sidebar__footer">
@@ -119,8 +119,28 @@
   </ul>
 </section>
 
+<section id="how">
+  <h2>02 · 製作方式</h2>
+  <p class="lead">三份語料，合成渲染，全程可重現。</p>
+
+  <ul>
+    <li><strong>語料</strong>：粵語維基百科、香港粵語語料庫（HKCanCor）、rime-cantonese 詞庫。三者授權都乾淨。</li>
+    <li><strong>字表</strong>：從語料字頻扣掉兩岸及香港的標準字表推導出粵語特有字，再經人工複核。</li>
+    <li><strong>字型</strong>：只用 SIL OFL 授權字型（昭源黑體、昭源宋體、Noto CJK、香港民間字集），共 33 個實例。</li>
+    <li><strong>增強</strong>：旋轉、透視、彈性形變、筆畫粗細、模糊、雜訊、JPEG 壓縮痕跡，分四個難度等級。</li>
+    <li><strong>品質防線</strong>：渲染前檢查字型是否真的收錄該字形，渲染後檢查可讀性，避免產出「空白方框但標註寫著某字」這種汙染標註的樣本。</li>
+    <li><strong>可重現</strong>：固定亂數種子，同一份語料產出逐位元相同的結果。</li>
+  </ul>
+
+  <p class="small muted">
+    完整方法論、參數與驗證數據寫在
+    <a href="https://github.com/trickster-2005/Cantonese-OCR-Benchmark">GitHub README</a> 與
+    <a href="https://huggingface.co/datasets/trickster-2005/cantonese-benchmark-synth">HuggingFace dataset card</a>。
+  </p>
+</section>
+
 <section id="dataset">
-  <h2>02 · 資料集內容</h2>
+  <h2>03 · 資料集內容</h2>
   <p class="lead">三層結構，同一個字跨層出現。</p>
 
   <div class="stats">
@@ -203,8 +223,50 @@
   </p>
 </section>
 
+<section id="samples">
+  <h2>04 · 資料集預覽</h2>
+  <p class="lead">資料實際長什麼樣。</p>
+  <p class="small muted">
+    紅色標示的是粵語特有字。可依層級、難度篩選，或只看擴展區（Unicode Extension）
+    字元與最小對立對（minimal pair）。
+  </p>
+
+  <div class="browser" id="browser">
+    <div class="filters">
+      <div class="fgroup">
+        <span class="flabel">層級</span>
+        <button class="chip" data-filter="tier" data-value="all" aria-pressed="true">全部</button>
+        <button class="chip" data-filter="tier" data-value="char" aria-pressed="false">單字</button>
+        <button class="chip" data-filter="tier" data-value="word" aria-pressed="false">詞彙</button>
+        <button class="chip" data-filter="tier" data-value="sentence" aria-pressed="false">短句</button>
+      </div>
+      <div class="fgroup">
+        <span class="flabel">難度</span>
+        <button class="chip" data-filter="difficulty" data-value="all" aria-pressed="true">全部</button>
+        <button class="chip" data-filter="difficulty" data-value="clean" aria-pressed="false">乾淨</button>
+        <button class="chip" data-filter="difficulty" data-value="light" aria-pressed="false">輕微</button>
+        <button class="chip" data-filter="difficulty" data-value="medium" aria-pressed="false">中等</button>
+        <button class="chip" data-filter="difficulty" data-value="hard" aria-pressed="false">困難</button>
+      </div>
+      <div class="fgroup">
+        <span class="flabel">篩選</span>
+        <button class="chip" data-filter="plane" data-value="all" aria-pressed="true">全部</button>
+        <button class="chip" data-filter="plane" data-value="ext" aria-pressed="false">擴展區字</button>
+        <button class="chip" data-filter="plane" data-value="pair" aria-pressed="false">最小對立對</button>
+      </div>
+      <div class="fgroup">
+        <button class="chip" data-filter="zoom" data-value="1" aria-pressed="false">放大 2×</button>
+      </div>
+    </div>
+    <p class="count"></p>
+    <div class="grid">
+      <noscript><p class="empty">樣本瀏覽器需要 JavaScript。完整資料集請見 HuggingFace。</p></noscript>
+    </div>
+  </div>
+</section>
+
 <section id="results">
-  <h2>03 · 評測結果</h2>
+  <h2>05 · 評測結果</h2>
   <p class="lead">模型在粵語字上的表現。</p>
   <p class="small muted">
     兩個同為 4B 參數的視覺語言模型，在 NVIDIA L40S 上以相同 prompt
@@ -247,76 +309,14 @@
   </p>
 </section>
 
-<section id="how">
-  <h2>04 · 製作方式</h2>
-  <p class="lead">三份語料，合成渲染，全程可重現。</p>
-
-  <ul>
-    <li><strong>語料</strong>：粵語維基百科、香港粵語語料庫（HKCanCor）、rime-cantonese 詞庫。三者授權都乾淨。</li>
-    <li><strong>字表</strong>：從語料字頻扣掉兩岸及香港的標準字表推導出粵語特有字，再經人工複核。</li>
-    <li><strong>字型</strong>：只用 SIL OFL 授權字型（昭源黑體、昭源宋體、Noto CJK、香港民間字集），共 33 個實例。</li>
-    <li><strong>增強</strong>：旋轉、透視、彈性形變、筆畫粗細、模糊、雜訊、JPEG 壓縮痕跡，分四個難度等級。</li>
-    <li><strong>品質防線</strong>：渲染前檢查字型是否真的收錄該字形，渲染後檢查可讀性，避免產出「空白方框但標註寫著某字」這種汙染標註的樣本。</li>
-    <li><strong>可重現</strong>：固定亂數種子，同一份語料產出逐位元相同的結果。</li>
-  </ul>
-
-  <p class="small muted">
-    完整方法論、參數與驗證數據寫在
-    <a href="https://github.com/trickster-2005/Cantonese-OCR-Benchmark">GitHub README</a> 與
-    <a href="https://huggingface.co/datasets/trickster-2005/cantonese-benchmark-synth">HuggingFace dataset card</a>。
-  </p>
-</section>
-
 <section id="next">
-  <h2>05 · 展望</h2>
+  <h2>06 · 未來展望</h2>
   <p class="lead">合成資料只是起點。</p>
   <ul>
     <li><strong>真實影像評測集。</strong>合成資料無法取代真實場景。下一步是蒐集香港街景招牌、餐牌、報紙，人工校對成一個小型真實評測集。</li>
     <li><strong>訓練集與微調驗證。</strong>把規模拉大到足以微調，然後實測「用了合成資料的模型，在真實粵語影像上有沒有變好」。沒有這一步，合成資料集的價值就只停留在推測。</li>
     <li><strong>直排與手寫。</strong>香港招牌大量使用直排，目前只有橫排。手寫則卡在粵語手寫字型幾乎不存在。</li>
   </ul>
-</section>
-
-<section id="samples">
-  <h2>06 · 樣本預覽</h2>
-  <p class="lead">資料實際長什麼樣。</p>
-  <p class="small muted">
-    紅色標示的是粵語特有字。可依層級、難度篩選，或只看擴展區（Unicode Extension）
-    字元與最小對立對（minimal pair）。
-  </p>
-
-  <div class="browser" id="browser">
-    <div class="filters">
-      <div class="fgroup">
-        <span class="flabel">層級</span>
-        <button class="chip" data-filter="tier" data-value="all" aria-pressed="true">全部</button>
-        <button class="chip" data-filter="tier" data-value="char" aria-pressed="false">單字</button>
-        <button class="chip" data-filter="tier" data-value="word" aria-pressed="false">詞彙</button>
-        <button class="chip" data-filter="tier" data-value="sentence" aria-pressed="false">短句</button>
-      </div>
-      <div class="fgroup">
-        <span class="flabel">難度</span>
-        <button class="chip" data-filter="difficulty" data-value="all" aria-pressed="true">全部</button>
-        <button class="chip" data-filter="difficulty" data-value="clean" aria-pressed="false">乾淨</button>
-        <button class="chip" data-filter="difficulty" data-value="light" aria-pressed="false">輕微</button>
-        <button class="chip" data-filter="difficulty" data-value="medium" aria-pressed="false">中等</button>
-        <button class="chip" data-filter="difficulty" data-value="hard" aria-pressed="false">困難</button>
-      </div>
-      <div class="fgroup">
-        <span class="flabel">篩選</span>
-        <button class="chip" data-filter="plane" data-value="all" aria-pressed="true">全部</button>
-        <button class="chip" data-filter="plane" data-value="ext" aria-pressed="false">擴展區字</button>
-        <button class="chip" data-filter="plane" data-value="pair" aria-pressed="false">最小對立對</button>
-      </div>
-      <div class="fgroup">
-        <button class="chip" data-filter="zoom" data-value="1" aria-pressed="false">放大 2×</button>
-      </div>
-    </div>
-    <p class="count"></p>
-    <div class="grid">
-      <noscript><p class="empty">樣本瀏覽器需要 JavaScript。完整資料集請見 HuggingFace。</p></noscript>
-    </div>
-  </div>
 </section>
 
 <footer>

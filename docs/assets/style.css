@@ -268,10 +268,13 @@ td.num, th.num { text-align: right; font-family: var(--font-mono);
          font-family: var(--font-mono); }
 
 .grid {
-  display: grid; gap: 11px;
-  grid-template-columns: repeat(auto-fill, minmax(184px, 1fr));
+  display: grid; gap: 8px;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
 }
 .card {
+  /* <figure> 的瀏覽器預設樣式帶 margin: 1em 40px，不重置的話每張卡片
+     左右各被推開 40px，看起來像卡片很窄、間距很大，其實是外距吃掉了空間 */
+  width: 100%; min-width: 0; margin: 0;
   border: 1px solid var(--color-border); border-radius: 8px; overflow: hidden;
   background: var(--color-surface); display: flex; flex-direction: column;
 }

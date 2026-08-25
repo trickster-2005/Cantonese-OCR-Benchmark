@@ -31,11 +31,11 @@
 
   <nav class="sidebar__nav">
     <a class="toc-link is-active" href="#why"><span class="toc-num">01</span><span>Motivation</span></a>
-    <a class="toc-link" href="#dataset"><span class="toc-num">02</span><span>Dataset</span></a>
-    <a class="toc-link" href="#results"><span class="toc-num">03</span><span>Results</span></a>
-    <a class="toc-link" href="#how"><span class="toc-num">04</span><span>Method</span></a>
-    <a class="toc-link" href="#next"><span class="toc-num">05</span><span>Outlook</span></a>
-    <a class="toc-link" href="#samples"><span class="toc-num">06</span><span>Samples</span></a>
+    <a class="toc-link" href="#how"><span class="toc-num">02</span><span>Method</span></a>
+    <a class="toc-link" href="#dataset"><span class="toc-num">03</span><span>Dataset</span></a>
+    <a class="toc-link" href="#samples"><span class="toc-num">04</span><span>Samples</span></a>
+    <a class="toc-link" href="#results"><span class="toc-num">05</span><span>Results</span></a>
+    <a class="toc-link" href="#next"><span class="toc-num">06</span><span>Outlook</span></a>
   </nav>
 
   <div class="sidebar__footer">
@@ -127,8 +127,28 @@
   </ul>
 </section>
 
+<section id="how">
+  <h2>02 · Method</h2>
+  <p class="lead">Three corpora, synthetic rendering, fully reproducible.</p>
+
+  <ul>
+    <li><strong>Corpora</strong>: Cantonese Wikipedia, the Hong Kong Cantonese Corpus (HKCanCor), and the rime-cantonese lexicon. All three are cleanly licensed.</li>
+    <li><strong>Character set</strong>: derived by subtracting the mainland, Taiwan and Hong Kong standard character lists from corpus character frequencies, then reviewed by hand.</li>
+    <li><strong>Fonts</strong>: SIL OFL only (Chiron Hei HK, Chiron Sung HK, Noto CJK, Hong Kong Character Set), 33 instances in total.</li>
+    <li><strong>Augmentation</strong>: rotation, perspective, elastic distortion, stroke weight, blur, noise and JPEG artefacts, across four difficulty levels.</li>
+    <li><strong>Quality gates</strong>: the font is checked for the glyph before rendering and legibility is checked after, which avoids the classic failure where a blank box is rendered while the label still claims a character.</li>
+    <li><strong>Reproducible</strong>: a fixed seed means the same corpus snapshot produces bit-identical output.</li>
+  </ul>
+
+  <p class="small muted">
+    Full methodology, parameters and validation data are in the
+    <a href="https://github.com/trickster-2005/Cantonese-OCR-Benchmark">GitHub README</a> and the
+    <a href="https://huggingface.co/datasets/trickster-2005/cantonese-benchmark-synth">HuggingFace dataset card</a>.
+  </p>
+</section>
+
 <section id="dataset">
-  <h2>02 · Dataset</h2>
+  <h2>03 · Dataset</h2>
   <p class="lead">Three tiers, with the same character appearing across them.</p>
 
   <div class="stats">
@@ -216,8 +236,50 @@
   </p>
 </section>
 
+<section id="samples">
+  <h2>04 · Samples</h2>
+  <p class="lead">What the data actually looks like.</p>
+  <p class="small muted">
+    Cantonese-specific characters are marked in red. Filter by tier and difficulty,
+    or show only Unicode Extension characters and minimal pairs.
+  </p>
+
+  <div class="browser" id="browser">
+    <div class="filters">
+      <div class="fgroup">
+        <span class="flabel">Tier</span>
+        <button class="chip" data-filter="tier" data-value="all" aria-pressed="true">All</button>
+        <button class="chip" data-filter="tier" data-value="char" aria-pressed="false">Character</button>
+        <button class="chip" data-filter="tier" data-value="word" aria-pressed="false">Word</button>
+        <button class="chip" data-filter="tier" data-value="sentence" aria-pressed="false">Sentence</button>
+      </div>
+      <div class="fgroup">
+        <span class="flabel">Difficulty</span>
+        <button class="chip" data-filter="difficulty" data-value="all" aria-pressed="true">All</button>
+        <button class="chip" data-filter="difficulty" data-value="clean" aria-pressed="false">Clean</button>
+        <button class="chip" data-filter="difficulty" data-value="light" aria-pressed="false">Light</button>
+        <button class="chip" data-filter="difficulty" data-value="medium" aria-pressed="false">Medium</button>
+        <button class="chip" data-filter="difficulty" data-value="hard" aria-pressed="false">Hard</button>
+      </div>
+      <div class="fgroup">
+        <span class="flabel">Filter</span>
+        <button class="chip" data-filter="plane" data-value="all" aria-pressed="true">All</button>
+        <button class="chip" data-filter="plane" data-value="ext" aria-pressed="false">Extension blocks</button>
+        <button class="chip" data-filter="plane" data-value="pair" aria-pressed="false">Minimal pairs</button>
+      </div>
+      <div class="fgroup">
+        <button class="chip" data-filter="zoom" data-value="1" aria-pressed="false">Zoom 2×</button>
+      </div>
+    </div>
+    <p class="count"></p>
+    <div class="grid">
+      <noscript><p class="empty">The sample browser needs JavaScript. The full dataset is on HuggingFace.</p></noscript>
+    </div>
+  </div>
+</section>
+
 <section id="results">
-  <h2>03 · Results</h2>
+  <h2>05 · Results</h2>
   <p class="lead">How the models do on Cantonese characters.</p>
   <p class="small muted">
     Two 4B-parameter vision-language models, run over all 4,930 images on an
@@ -262,76 +324,14 @@
   </p>
 </section>
 
-<section id="how">
-  <h2>04 · Method</h2>
-  <p class="lead">Three corpora, synthetic rendering, fully reproducible.</p>
-
-  <ul>
-    <li><strong>Corpora</strong>: Cantonese Wikipedia, the Hong Kong Cantonese Corpus (HKCanCor), and the rime-cantonese lexicon. All three are cleanly licensed.</li>
-    <li><strong>Character set</strong>: derived by subtracting the mainland, Taiwan and Hong Kong standard character lists from corpus character frequencies, then reviewed by hand.</li>
-    <li><strong>Fonts</strong>: SIL OFL only (Chiron Hei HK, Chiron Sung HK, Noto CJK, Hong Kong Character Set), 33 instances in total.</li>
-    <li><strong>Augmentation</strong>: rotation, perspective, elastic distortion, stroke weight, blur, noise and JPEG artefacts, across four difficulty levels.</li>
-    <li><strong>Quality gates</strong>: the font is checked for the glyph before rendering and legibility is checked after, which avoids the classic failure where a blank box is rendered while the label still claims a character.</li>
-    <li><strong>Reproducible</strong>: a fixed seed means the same corpus snapshot produces bit-identical output.</li>
-  </ul>
-
-  <p class="small muted">
-    Full methodology, parameters and validation data are in the
-    <a href="https://github.com/trickster-2005/Cantonese-OCR-Benchmark">GitHub README</a> and the
-    <a href="https://huggingface.co/datasets/trickster-2005/cantonese-benchmark-synth">HuggingFace dataset card</a>.
-  </p>
-</section>
-
 <section id="next">
-  <h2>05 · Outlook</h2>
+  <h2>06 · Outlook</h2>
   <p class="lead">Synthetic data is only the starting point.</p>
   <ul>
     <li><strong>A real-image evaluation set.</strong> Synthetic data cannot stand in for real scenes. The next step is collecting Hong Kong shop signs, menus and newspapers and proofreading them into a small real benchmark.</li>
     <li><strong>Training set and fine-tuning evidence.</strong> Scale up enough to fine-tune, then measure whether a model trained on this data actually improves on real Cantonese images. Without that step, the value of a synthetic dataset remains a claim.</li>
     <li><strong>Vertical text and handwriting.</strong> Hong Kong signage is often vertical; this release is horizontal only. Handwriting is blocked on the near-total absence of Cantonese handwriting fonts.</li>
   </ul>
-</section>
-
-<section id="samples">
-  <h2>06 · Samples</h2>
-  <p class="lead">What the data actually looks like.</p>
-  <p class="small muted">
-    Cantonese-specific characters are marked in red. Filter by tier and difficulty,
-    or show only Unicode Extension characters and minimal pairs.
-  </p>
-
-  <div class="browser" id="browser">
-    <div class="filters">
-      <div class="fgroup">
-        <span class="flabel">Tier</span>
-        <button class="chip" data-filter="tier" data-value="all" aria-pressed="true">All</button>
-        <button class="chip" data-filter="tier" data-value="char" aria-pressed="false">Character</button>
-        <button class="chip" data-filter="tier" data-value="word" aria-pressed="false">Word</button>
-        <button class="chip" data-filter="tier" data-value="sentence" aria-pressed="false">Sentence</button>
-      </div>
-      <div class="fgroup">
-        <span class="flabel">Difficulty</span>
-        <button class="chip" data-filter="difficulty" data-value="all" aria-pressed="true">All</button>
-        <button class="chip" data-filter="difficulty" data-value="clean" aria-pressed="false">Clean</button>
-        <button class="chip" data-filter="difficulty" data-value="light" aria-pressed="false">Light</button>
-        <button class="chip" data-filter="difficulty" data-value="medium" aria-pressed="false">Medium</button>
-        <button class="chip" data-filter="difficulty" data-value="hard" aria-pressed="false">Hard</button>
-      </div>
-      <div class="fgroup">
-        <span class="flabel">Filter</span>
-        <button class="chip" data-filter="plane" data-value="all" aria-pressed="true">All</button>
-        <button class="chip" data-filter="plane" data-value="ext" aria-pressed="false">Extension blocks</button>
-        <button class="chip" data-filter="plane" data-value="pair" aria-pressed="false">Minimal pairs</button>
-      </div>
-      <div class="fgroup">
-        <button class="chip" data-filter="zoom" data-value="1" aria-pressed="false">Zoom 2×</button>
-      </div>
-    </div>
-    <p class="count"></p>
-    <div class="grid">
-      <noscript><p class="empty">The sample browser needs JavaScript. The full dataset is on HuggingFace.</p></noscript>
-    </div>
-  </div>
 </section>
 
 <footer>
