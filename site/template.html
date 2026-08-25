@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="{{html_lang}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{meta_title}}</title>
+<meta name="description" content="{{meta_description}}">
+<link rel="alternate" hreflang="zh-Hant" href="{{zh_href}}">
+<link rel="alternate" hreflang="en" href="{{en_href}}">
+<link rel="alternate" hreflang="x-default" href="{{xdefault_href}}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{root}}assets/style.css">
+</head>
+<body>
+
+<div class="draft-banner">
+  <span>🚧 草稿版本 Draft — 內容與版面仍在調整中，尚未定稿</span>
+  <span>🚧 Draft — content and layout are still being revised; not yet final</span>
+</div>
+
+<div class="shell">
+
+<aside class="sidebar">
+  <div>
+    <p class="sidebar__eyebrow">{{shared.sidebar_eyebrow}}</p>
+    <h1 class="sidebar__title">{{sidebar_title}}</h1>
+    <p class="sidebar__subtitle">{{sidebar_subtitle}}</p>
+  </div>
+
+  <nav class="sidebar__nav">
+    <a class="toc-link is-active" href="#why"><span class="toc-num">01</span><span>{{nav_why}}</span></a>
+    <a class="toc-link" href="#how"><span class="toc-num">02</span><span>{{nav_how}}</span></a>
+    <a class="toc-link" href="#dataset"><span class="toc-num">03</span><span>{{nav_dataset}}</span></a>
+    <a class="toc-link" href="#samples"><span class="toc-num">04</span><span>{{nav_samples}}</span></a>
+    <a class="toc-link" href="#results"><span class="toc-num">05</span><span>{{nav_results}}</span></a>
+    <a class="toc-link" href="#next"><span class="toc-num">06</span><span>{{nav_next}}</span></a>
+  </nav>
+
+  <div class="sidebar__footer">
+    <a href="{{shared.urls.hf}}">HuggingFace ↗</a>
+    <a href="{{shared.urls.gh}}">GitHub ↗</a>
+    <span>{{shared.licence_dataset}}</span>
+  </div>
+</aside>
+
+<main class="content"><div class="wrap">
+
+<header class="hero">
+  <h1>{{hero_h1}}</h1>
+  <p class="sub">
+    {{hero_sub}}
+  </p>
+  <div class="badges">
+    <a class="badge" href="{{shared.urls.hf}}">HuggingFace ↗</a>
+    <a class="badge" href="{{shared.urls.gh}}">GitHub ↗</a>
+    <span class="badge">{{shared.licence_dataset}}</span>
+    <span class="badge">{{hero_badge_size}}</span>
+  </div>
+</header>
+
+<section id="why">
+  <h2>01 · {{why_h2}}</h2>
+  <p class="lead">{{why_lead}}</p>
+
+  <h3>{{why_gap_heading}}</h3>
+  <p>
+    {{why_gap_intro}}
+  </p>
+  <ul>
+    <li>
+      {{why_gap_li1}}
+    </li>
+    <li>
+      {{why_gap_li2}}
+    </li>
+    <li>
+      {{why_gap_li3}}
+    </li>
+  </ul>
+
+  <p>
+    {{why_common_chars}}
+  </p>
+
+  <h3>{{why_contrib_heading}}</h3>
+  <ul>
+    <li>
+      {{why_contrib_li1}}
+    </li>
+    <li>
+      {{why_contrib_li2}}
+    </li>
+    <li>
+      {{why_contrib_li3}}
+    </li>
+    <li>
+      {{why_contrib_li4}}
+    </li>
+  </ul>
+</section>
+
+<section id="how">
+  <h2>02 · {{how_h2}}</h2>
+  <p class="lead">{{how_lead}}</p>
+
+  <ul>
+    <li>{{how_li1}}</li>
+    <li>{{how_li2}}</li>
+    <li>{{how_li3}}</li>
+    <li>{{how_li4}}</li>
+    <li>{{how_li5}}</li>
+    <li>{{how_li6}}</li>
+  </ul>
+
+  <p class="small muted">
+    {{how_more}}
+  </p>
+</section>
+
+<section id="dataset">
+  <h2>03 · {{dataset_h2}}</h2>
+  <p class="lead">{{dataset_lead}}</p>
+
+  <div class="stats">
+    <div class="stat"><div class="v">{{stat1_v}}</div><div class="k">{{stat1_k}}</div></div>
+    <div class="stat"><div class="v">{{stat2_v}}</div><div class="k">{{stat2_k}}</div></div>
+    <div class="stat"><div class="v">{{stat3_v}}</div><div class="k">{{stat3_k}}</div></div>
+    <div class="stat"><div class="v">{{stat4_v}}</div><div class="k">{{stat4_k}}</div></div>
+    <div class="stat"><div class="v">{{stat5_v}}</div><div class="k">{{stat5_k}}</div></div>
+  </div>
+
+  <div class="tbl-scroll">
+  <table>
+    <thead><tr>
+      <th>{{tier_table_th_tier}}</th><th>{{tier_table_th_content}}</th><th class="num">{{tier_table_th_images}}</th>
+      <th class="num">{{tier_table_th_distinct}}</th><th class="num">{{tier_table_th_len}}</th><th>{{tier_table_th_tests}}</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>{{tier_char_name}}</strong></td><td>{{tier_char_content}}</td>
+        <td class="num">1,162</td><td class="num">166</td><td class="num">1</td>
+        <td>{{tier_char_tests}}</td>
+      </tr>
+      <tr>
+        <td><strong>{{tier_word_name}}</strong></td><td>{{tier_word_content}}</td>
+        <td class="num">1,781</td><td class="num">600</td><td class="num">2–4</td>
+        <td>{{tier_word_tests}}</td>
+      </tr>
+      <tr>
+        <td><strong>{{tier_sentence_name}}</strong></td><td>{{tier_sentence_content}}</td>
+        <td class="num">1,987</td><td class="num">667</td><td class="num">4–25</td>
+        <td>{{tier_sentence_tests}}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="note">
+    <p>
+      {{core_design_note}}
+    </p>
+  </div>
+
+  <h3>{{pairs_heading}}</h3>
+  <p class="small muted">
+    {{pairs_intro}}
+  </p>
+
+  <div class="pairs">
+    <div class="pair"><div class="glyphs"><span class="canto">冇</span><span class="arrow">→</span><span>有</span></div><div class="why">{{pair1_why}}</div></div>
+    <div class="pair"><div class="glyphs"><span class="canto">嘅</span><span class="arrow">→</span><span>既</span></div><div class="why">{{pair2_why}}</div></div>
+    <div class="pair"><div class="glyphs"><span class="canto">咗</span><span class="arrow">→</span><span>左</span></div><div class="why">{{pair3_why}}</div></div>
+    <div class="pair"><div class="glyphs"><span class="canto">佢</span><span class="arrow">→</span><span>但</span></div><div class="why">{{pair4_why}}</div></div>
+    <div class="pair"><div class="glyphs"><span class="canto">哋</span><span class="arrow">→</span><span>地</span></div><div class="why">{{pair5_why}}</div></div>
+    <div class="pair"><div class="glyphs"><span class="canto">睇</span><span class="arrow">→</span><span>看</span></div><div class="why">{{pair6_why}}</div></div>
+  </div>
+
+  <h3>{{composition_heading}}</h3>
+
+  <div class="tbl-scroll">
+  <table>
+    <thead><tr><th>{{composition_th_aspect}}</th><th>{{composition_th_breakdown}}</th></tr></thead>
+    <tbody>
+      <tr><td>{{composition_difficulty_label}}</td><td>{{composition_difficulty_value}}</td></tr>
+      <tr><td>{{composition_plane_label}}</td><td>{{composition_plane_value}}</td></tr>
+      <tr><td>{{composition_source_label}}</td><td>{{composition_source_value}}</td></tr>
+      <tr><td>{{composition_format_label}}</td><td>{{composition_format_value}}</td></tr>
+      <tr><td>{{composition_metadata_label}}</td><td>{{composition_metadata_value}}</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p class="small muted">
+    {{composition_note}}
+  </p>
+</section>
+
+<section id="samples">
+  <h2>04 · {{samples_h2}}</h2>
+  <p class="lead">{{samples_lead}}</p>
+  <p class="small muted">
+    {{samples_intro}}
+  </p>
+
+  <div class="browser" id="browser">
+    <div class="filters">
+      <div class="fgroup">
+        <span class="flabel">{{ui_tier_label}}</span>
+        <button class="chip" data-filter="tier" data-value="all" aria-pressed="true">{{ui_all}}</button>
+        <button class="chip" data-filter="tier" data-value="char" aria-pressed="false">{{ui_tier_char}}</button>
+        <button class="chip" data-filter="tier" data-value="word" aria-pressed="false">{{ui_tier_word}}</button>
+        <button class="chip" data-filter="tier" data-value="sentence" aria-pressed="false">{{ui_tier_sentence}}</button>
+      </div>
+      <div class="fgroup">
+        <span class="flabel">{{ui_difficulty_label}}</span>
+        <button class="chip" data-filter="difficulty" data-value="all" aria-pressed="true">{{ui_all}}</button>
+        <button class="chip" data-filter="difficulty" data-value="clean" aria-pressed="false">{{ui_diff_clean}}</button>
+        <button class="chip" data-filter="difficulty" data-value="light" aria-pressed="false">{{ui_diff_light}}</button>
+        <button class="chip" data-filter="difficulty" data-value="medium" aria-pressed="false">{{ui_diff_medium}}</button>
+        <button class="chip" data-filter="difficulty" data-value="hard" aria-pressed="false">{{ui_diff_hard}}</button>
+      </div>
+      <div class="fgroup">
+        <span class="flabel">{{ui_filter_label}}</span>
+        <button class="chip" data-filter="plane" data-value="all" aria-pressed="true">{{ui_all}}</button>
+        <button class="chip" data-filter="plane" data-value="ext" aria-pressed="false">{{ui_plane_ext}}</button>
+        <button class="chip" data-filter="plane" data-value="pair" aria-pressed="false">{{ui_plane_pair}}</button>
+      </div>
+      <div class="fgroup">
+        <button class="chip" data-filter="zoom" data-value="1" aria-pressed="false">{{ui_zoom}}</button>
+      </div>
+    </div>
+    <p class="count"></p>
+    <div class="grid">
+      <noscript><p class="empty">{{samples_noscript}}</p></noscript>
+    </div>
+  </div>
+</section>
+
+<section id="results">
+  <h2>05 · {{results_h2}}</h2>
+  <p class="lead">{{results_lead}}</p>
+  <p class="small muted">
+    {{results_intro}}
+  </p>
+
+  <div class="pending">
+    <div class="tick">{{results_pending_tick}}</div>
+    <p>{{results_pending_text}}</p>
+  </div>
+
+  <div class="tbl-scroll">
+  <table>
+    <thead><tr>
+      <th>{{results_th_model}}</th><th class="num">CER ↓</th><th class="num">ACC ↑</th>
+      <th class="num">1−NED ↑</th><th class="num">{{results_th_acc_char}}</th>
+      <th class="num">{{results_th_acc_sentence}}</th><th class="num">{{results_th_acc_ext}}</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td><span class="dot" style="background:var(--accent-qwen-4b)"></span>Qwen3-VL 4B</td>
+        <td class="tbd num">{{results_tbd}}</td><td class="tbd num">{{results_tbd}}</td><td class="tbd num">{{results_tbd}}</td>
+        <td class="tbd num">{{results_tbd}}</td><td class="tbd num">{{results_tbd}}</td><td class="tbd num">{{results_tbd}}</td>
+      </tr>
+      <tr>
+        <td><span class="dot" style="background:var(--accent-internvl)"></span>InternVL3.5 4B</td>
+        <td class="tbd num">{{results_tbd}}</td><td class="tbd num">{{results_tbd}}</td><td class="tbd num">{{results_tbd}}</td>
+        <td class="tbd num">{{results_tbd}}</td><td class="tbd num">{{results_tbd}}</td><td class="tbd num">{{results_tbd}}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>{{results_observation_heading}}</h3>
+  <p>
+    {{results_observation_text}}
+  </p>
+</section>
+
+<section id="next">
+  <h2>06 · {{next_h2}}</h2>
+  <p class="lead">{{next_lead}}</p>
+  <ul>
+    <li>{{next_li1}}</li>
+    <li>{{next_li2}}</li>
+    <li>{{next_li3}}</li>
+  </ul>
+</section>
+
+<footer>
+  <div class="cols">
+    <div>
+      <h4>{{footer_dataset_heading}}</h4>
+      <ul>
+        <li><a href="{{shared.urls.hf}}">HuggingFace</a></li>
+        <li><a href="{{shared.urls.gh}}">GitHub</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>{{footer_licence_heading}}</h4>
+      <ul>
+        <li>{{footer_licence_dataset_line}}</li>
+        <li>{{footer_licence_code_line}}</li>
+        <li>{{footer_licence_font_line}}</li>
+      </ul>
+    </div>
+    <div>
+      <h4>{{footer_corpus_heading}}</h4>
+      <ul>
+        <li>{{footer_wikipedia_line}}</li>
+        <li>{{footer_hkcancor_line}}</li>
+        <li>{{footer_rime_line}}</li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="disclosure">
+    {{footer_disclosure1}}
+  </p>
+  <p class="disclosure" style="border:0;padding-top:12px">
+    {{footer_disclosure2}}
+  </p>
+</footer>
+
+</div></main>
+</div>
+
+<a class="lang-float" href="{{lang_float_href}}" hreflang="{{lang_float_hreflang}}">{{lang_float_label}}</a>
+
+<script>
+window.CB_I18N = {
+  assetBase: "{{root}}assets/",
+  tier: { char: "{{ui_tier_char}}", word: "{{ui_tier_word}}", sentence: "{{ui_tier_sentence}}" },
+  diff: { clean: "{{ui_diff_clean}}", light: "{{ui_diff_light}}", medium: "{{ui_diff_medium}}", hard: "{{ui_diff_hard}}" },
+  pairCanto: "{{ui_pair_canto}}",
+  pairStd: "{{ui_pair_std}}",
+  showing: "{{ui_showing}}",
+  noMatch: "{{ui_no_match}}",
+  loadFail: "{{ui_load_fail}}"
+};
+</script>
+<script src="{{root}}assets/app.js"></script>
+</body>
+</html>

@@ -51,8 +51,8 @@
   <h1>A Cantonese OCR benchmark</h1>
   <p class="sub">
     Mainstream OCR cannot read the characters used in written Cantonese, and the
-    Cantonese datasets that exist are all text or audio. This project builds an
-    image-based Cantonese OCR benchmark and opens the pipeline that generates it.
+Cantonese datasets that exist are all text or audio. This project builds an
+image-based Cantonese OCR benchmark and opens the pipeline that generates it.
   </p>
   <div class="badges">
     <a class="badge" href="https://huggingface.co/datasets/trickster-2005/cantonese-benchmark-synth">HuggingFace ↗</a>
@@ -69,60 +69,60 @@
   <h3>Gaps in existing resources</h3>
   <p>
     Everyday writing in Hong Kong is full of characters that do not exist in
-    Standard Written Chinese, for example
-    <span class="cjk-big">嘅, 咗, 冇, 喺, 𨋢</span>.
-    These characters barely appear in mainstream OCR training data, and models
-    struggle with them. Surveying what already exists turned up three gaps:
+Standard Written Chinese, for example
+<span class="cjk-big">嘅, 咗, 冇, 喺, 𨋢</span>.
+These characters barely appear in mainstream OCR training data, and models
+struggle with them. Surveying what already exists turned up three gaps:
   </p>
   <ul>
     <li>
       <strong>No image dataset.</strong>
-      There are twenty-odd Cantonese datasets on HuggingFace, all of them text or
-      audio. We did not find one that provides Cantonese OCR data as images.
+There are twenty-odd Cantonese datasets on HuggingFace, all of them text or
+audio. We did not find one that provides Cantonese OCR data as images.
     </li>
     <li>
       <strong>Existing benchmarks measure language understanding.</strong>
-      Recent Cantonese benchmarks (CantoNLU, HKCanto-Eval) evaluate comprehension
-      and cultural knowledge. We did not find a public benchmark for visual
-      recognition.
+Recent Cantonese benchmarks (CantoNLU, HKCanto-Eval) evaluate comprehension
+and cultural knowledge. We did not find a public benchmark for visual
+recognition.
     </li>
     <li>
       <strong>Some Cantonese characters are missing from fonts entirely.</strong>
-      Across the 33 open-licensed font instances we checked,
-      <code>𠮶</code> (U+20BB6) is supported by none. A character no font carries
-      is one a model never had a chance to learn.
+Across the 33 open-licensed font instances we checked,
+<code>𠮶</code> (U+20BB6) is supported by none. A character no font carries
+is one a model never had a chance to learn.
     </li>
   </ul>
 
   <p>
     The harder problem is not the rare characters, but the ones that look like
-    common ones. <code>冇</code> (“to not have”) differs from <code>有</code>
-    (“to have”) by two strokes and means the opposite. Misread one character and
-    the sentence inverts.
+common ones. <code>冇</code> (“to not have”) differs from <code>有</code>
+(“to have”) by two strokes and means the opposite. Misread one character and
+the sentence inverts.
   </p>
 
   <h3>What this project contributes</h3>
   <ul>
     <li>
       <strong>A reproducible Cantonese OCR benchmark.</strong>
-      Three tiers (character, word, sentence) covering 154 Cantonese-specific
-      characters, with a fixed random seed so the same corpus produces
-      bit-identical output.
+Three tiers (character, word, sentence) covering 154 Cantonese-specific
+characters, with a fixed random seed so the same corpus produces
+bit-identical output.
     </li>
     <li>
       <strong>A design that separates two kinds of failure.</strong>
-      The same character appears in both the character tier and the sentence tier,
-      which distinguishes “could not see it” from “knew the shape but was
-      overridden by language habit”.
+The same character appears in both the character tier and the sentence tier,
+which distinguishes “could not see it” from “knew the shape but was
+overridden by language habit”.
     </li>
     <li>
       <strong>An openly licensed generation pipeline.</strong>
-      Every corpus and font has an explicit licence, so the resulting dataset can
-      be distributed publicly.
+Every corpus and font has an explicit licence, so the resulting dataset can
+be distributed publicly.
     </li>
     <li>
       <strong>Baseline scores for two vision-language models</strong>
-      as a starting point for later comparison.
+as a starting point for later comparison.
     </li>
   </ul>
 </section>
@@ -142,8 +142,8 @@
 
   <p class="small muted">
     Full methodology, parameters and validation data are in the
-    <a href="https://github.com/trickster-2005/Cantonese-OCR-Benchmark">GitHub README</a> and the
-    <a href="https://huggingface.co/datasets/trickster-2005/cantonese-benchmark-synth">HuggingFace dataset card</a>.
+<a href="https://github.com/trickster-2005/Cantonese-OCR-Benchmark">GitHub README</a> and the
+<a href="https://huggingface.co/datasets/trickster-2005/cantonese-benchmark-synth">HuggingFace dataset card</a>.
   </p>
 </section>
 
@@ -188,20 +188,20 @@
   <div class="note">
     <p>
       <strong>The core design:</strong> the same character appears in both the
-      character tier and the sentence tier. If a model reads <code>冇</code>
-      correctly in isolation but returns <code>有</code> inside a sentence, the
-      failure is not visual. It is the
-      <strong>language-model prior overriding the glyph actually on screen</strong>.
-      A sentence-only benchmark cannot separate those two cases.
+character tier and the sentence tier. If a model reads <code>冇</code>
+correctly in isolation but returns <code>有</code> inside a sentence, the
+failure is not visual. It is the
+<strong>language-model prior overriding the glyph actually on screen</strong>.
+A sentence-only benchmark cannot separate those two cases.
     </p>
   </div>
 
   <h3>Minimal pairs</h3>
   <p class="small muted">
     The dataset deliberately includes the matching Standard Chinese characters
-    (有, 既, 左, 但 and so on) as a baseline. Without that baseline there is no way
-    to tell whether reading <code>冇</code> as <code>有</code> is a visual problem
-    or a linguistic one. Some of the pairs the design targets:
+(有, 既, 左, 但 and so on) as a baseline. Without that baseline there is no way
+to tell whether reading <code>冇</code> as <code>有</code> is a visual problem
+or a linguistic one. Some of the pairs the design targets:
   </p>
 
   <div class="pairs">
@@ -230,9 +230,9 @@
 
   <p class="small muted">
     Extension-block characters make up 14% of the character tier, far above their
-    natural corpus frequency. This is deliberate long-tail flattening: sampling by
-    frequency would fill the benchmark with common characters and never show the
-    rare ones at all.
+natural corpus frequency. This is deliberate long-tail flattening: sampling by
+frequency would fill the benchmark with common characters and never show the
+rare ones at all.
   </p>
 </section>
 
@@ -241,7 +241,7 @@
   <p class="lead">What the data actually looks like.</p>
   <p class="small muted">
     Cantonese-specific characters are marked in red. Filter by tier and difficulty,
-    or show only Unicode Extension characters and minimal pairs.
+or show only Unicode Extension characters and minimal pairs.
   </p>
 
   <div class="browser" id="browser">
@@ -283,9 +283,9 @@
   <p class="lead">How the models do on Cantonese characters.</p>
   <p class="small muted">
     Two 4B-parameter vision-language models, run over all 4,930 images on an
-    NVIDIA L40S with identical prompts and decoding parameters. Metrics follow OCR
-    convention: CER (character error rate, lower is better), ACC (exact sequence
-    match), 1−NED (normalised edit similarity).
+NVIDIA L40S with identical prompts and decoding parameters. Metrics follow OCR
+convention: CER (character error rate, lower is better), ACC (exact sequence
+match), 1−NED (normalised edit similarity).
   </p>
 
   <div class="pending">
@@ -318,9 +318,9 @@
   <h3>Early observation</h3>
   <p>
     A small pilot already shows systematic substitution. Both models read the
-    Cantonese character <code>㓎</code> as a visually similar standard character,
-    and InternVL3.5 returns <code>浸</code> every single time. That is not random
-    error but a stable wrong preference.
+Cantonese character <code>㓎</code> as a visually similar standard character,
+and InternVL3.5 returns <code>浸</code> every single time. That is not random
+error but a stable wrong preference.
   </p>
 </section>
 
@@ -363,12 +363,12 @@
 
   <p class="disclosure">
     Because one corpus is CC BY-SA licensed, the dataset as a whole is copyleft:
-    derivative works must be released under the same licence.
+derivative works must be released under the same licence.
   </p>
   <p class="disclosure" style="border:0;padding-top:12px">
     This page and the dataset generation code were produced with assistance from
-    Claude (Anthropic). All figures, methods and claims were reviewed and verified
-    by the author.
+Claude (Anthropic). All figures, methods and claims were reviewed and verified
+by the author.
   </p>
 </footer>
 
@@ -380,8 +380,8 @@
 <script>
 window.CB_I18N = {
   assetBase: "../assets/",
-  tier: { char: "character", word: "word", sentence: "sentence" },
-  diff: { clean: "clean", light: "light", medium: "medium", hard: "hard" },
+  tier: { char: "Character", word: "Word", sentence: "Sentence" },
+  diff: { clean: "Clean", light: "Light", medium: "Medium", hard: "Hard" },
   pairCanto: "pairs with %s",
   pairStd: "standard (Canto: %s)",
   showing: "Showing %1 of %2 samples",

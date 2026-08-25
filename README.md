@@ -335,7 +335,29 @@ data. Use the Creative Commons family.
 | `evaluate.py` | Run VLMs over the benchmark |
 | `export_samples.py` | Export samples for the project page |
 | `run_server.sh` | One-step server workflow |
-| `docs/` | Bilingual project page (GitHub Pages) |
+| `docs/` | Bilingual project page (GitHub Pages), generated from `site/` — **do not hand-edit** |
+| `site/content.yaml` | All page text. Edit this. |
+| `site/template.html` | Page structure; one template renders both language versions |
+| `site/build_site.py` | Compiles `content.yaml` + `template.html` into `docs/*.html` |
+
+### Editing the project page's text
+
+```bash
+python site/build_site.py
+```
+
+Edit the text in `site/content.yaml`, run the command above, and both
+`docs/index.html` and `docs/en/index.html` regenerate. Preview in a browser,
+then commit and push as usual.
+
+Do not hand-edit `docs/index.html` or `docs/en/index.html` directly — they are
+generated output and get overwritten on the next build. Both language versions
+share one template, so a structural change (new section, reordered content)
+only needs to be made once.
+
+The build checks that every `{{...}}` placeholder has matching text; a missing
+or misspelled key fails the build with the exact key name rather than silently
+producing a page with a raw `{{some_key}}` showing on screen.
 
 ### Citation
 
@@ -637,7 +659,27 @@ python evaluate.py                   # 完整執行，可續跑
 | `evaluate.py` | 在評測集上跑 VLM |
 | `export_samples.py` | 匯出專案頁用的樣本 |
 | `run_server.sh` | server 一鍵流程 |
-| `docs/` | 雙語專案頁（GitHub Pages） |
+| `docs/` | 雙語專案頁（GitHub Pages），由 `site/` 自動產生，**不要手改** |
+| `site/content.yaml` | 網站上所有文字，改這個 |
+| `site/template.html` | 網站版面結構，一份模板同時產生中英兩版 |
+| `site/build_site.py` | 把 `content.yaml` + `template.html` 編譯成 `docs/*.html` |
+
+### 改網站文字
+
+```bash
+python site/build_site.py
+```
+
+流程：改 `site/content.yaml` 裡的文字 → 執行上面這行 → `docs/index.html` 和
+`docs/en/index.html` 自動重新產生 → 瀏覽器打開確認 → 照平常方式 commit + push。
+
+`docs/index.html` 和 `docs/en/index.html` 兩個檔案本身不要手改——它們是產出物，
+下次跑腳本會被整個覆蓋掉。中英文共用同一份 `template.html`，改版面結構（章節順序、
+新增區塊）只要改一個地方，兩個語言版本會一起更新，不會再有改了中文忘記改英文的問題。
+
+`content.yaml` 開頭有詳細的編輯說明。腳本會檢查每個 `{{...}}` 標記都有對應的文字，
+少填或打錯字會直接報錯並告訴你缺哪一個，不會產生一個看起來正常、但畫面上出現
+`{{some_key}}` 這種沒解開的網頁。
 
 ### 引用
 

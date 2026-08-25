@@ -51,7 +51,7 @@
   <h1>粵語 OCR 評測資料集</h1>
   <p class="sub">
     粵語書寫用的字，主流 OCR 認不得；而現有的粵語資料集，全是文字與語音。
-    本專案製作一份影像形式的粵語 OCR 評測資料集，並公開整套生成管線。
+本專案製作一份影像形式的粵語 OCR 評測資料集，並公開整套生成管線。
   </p>
   <div class="badges">
     <a class="badge" href="https://huggingface.co/datasets/trickster-2005/cantonese-benchmark-synth">HuggingFace ↗</a>
@@ -68,53 +68,53 @@
   <h3>現有資源的不足</h3>
   <p>
     香港的日常書寫大量使用標準中文沒有的字，例如
-    <span class="cjk-big">嘅、咗、冇、喺、𨋢</span>。
-    這些字在主流 OCR 的訓練資料中極少出現，模型辨識起來相當吃力。
-    我們在盤點現有資源時發現三件事：
+<span class="cjk-big">嘅、咗、冇、喺、𨋢</span>。
+這些字在主流 OCR 的訓練資料中極少出現，模型辨識起來相當吃力。
+我們在盤點現有資源時發現三件事：
   </p>
   <ul>
     <li>
       <strong>影像資料集付之闕如。</strong>
-      HuggingFace 上搜得到的粵語資料集有二十多個，內容都是純文字或語音，
-      目前未找到以影像形式提供的粵語 OCR 資料集。
+HuggingFace 上搜得到的粵語資料集有二十多個，內容都是純文字或語音，
+目前未找到以影像形式提供的粵語 OCR 資料集。
     </li>
     <li>
       <strong>既有評測都在測文字理解。</strong>
-      近年的粵語基準測試（如 CantoNLU、HKCanto-Eval）評估的是語言理解與文化知識，
-      視覺辨識這一塊尚未見到公開的評測基準。
+近年的粵語基準測試（如 CantoNLU、HKCanto-Eval）評估的是語言理解與文化知識，
+視覺辨識這一塊尚未見到公開的評測基準。
     </li>
     <li>
       <strong>部分粵語字連字型都缺。</strong>
-      我們檢查了 33 個開源字型實例，<code>𠮶</code>（U+20BB6）的支援數是 0。
-      字型都沒收錄的字，模型自然沒有機會學會。
+我們檢查了 33 個開源字型實例，<code>𠮶</code>（U+20BB6）的支援數是 0。
+字型都沒收錄的字，模型自然沒有機會學會。
     </li>
   </ul>
 
   <p>
     真正棘手的其實不是罕見字，而是那些「長得很像常用字」的。
-    <code>冇</code>（沒有）和 <code>有</code> 只差兩筆，語義卻完全相反。
-    辨錯一個字，整句話的意思就顛倒了。
+<code>冇</code>（沒有）和 <code>有</code> 只差兩筆，語義卻完全相反。
+辨錯一個字，整句話的意思就顛倒了。
   </p>
 
   <h3>本專案的貢獻</h3>
   <ul>
     <li>
       <strong>一份可重現的粵語 OCR 評測集。</strong>
-      三層結構（單字、詞彙、短句），涵蓋 154 個粵語特有字，固定亂數種子，
-      同一份語料可產出逐位元相同的結果。
+三層結構（單字、詞彙、短句），涵蓋 154 個粵語特有字，固定亂數種子，
+同一份語料可產出逐位元相同的結果。
     </li>
     <li>
       <strong>能區分兩種失敗原因的實驗設計。</strong>
-      同一個字同時出現在單字層與句子層，可以分辨模型是「看不清楚」
-      還是「知道形狀但被語言習慣蓋過去」。
+同一個字同時出現在單字層與句子層，可以分辨模型是「看不清楚」
+還是「知道形狀但被語言習慣蓋過去」。
     </li>
     <li>
       <strong>授權乾淨的開源生成管線。</strong>
-      語料與字型全部採用明確授權的來源，產出的資料集可以公開散布。
+語料與字型全部採用明確授權的來源，產出的資料集可以公開散布。
     </li>
     <li>
       <strong>兩個視覺語言模型的基線分數。</strong>
-      提供後續研究比較的起點。
+提供後續研究比較的起點。
     </li>
   </ul>
 </section>
@@ -134,8 +134,8 @@
 
   <p class="small muted">
     完整方法論、參數與驗證數據寫在
-    <a href="https://github.com/trickster-2005/Cantonese-OCR-Benchmark">GitHub README</a> 與
-    <a href="https://huggingface.co/datasets/trickster-2005/cantonese-benchmark-synth">HuggingFace dataset card</a>。
+<a href="https://github.com/trickster-2005/Cantonese-OCR-Benchmark">GitHub README</a> 與
+<a href="https://huggingface.co/datasets/trickster-2005/cantonese-benchmark-synth">HuggingFace dataset card</a>。
   </p>
 </section>
 
@@ -180,17 +180,17 @@
   <div class="note">
     <p>
       <strong>核心設計：</strong>同一個字會同時出現在「單字」和「句子」兩層。
-      如果模型在單字層把 <code>冇</code> 認對、在句子層卻讀成 <code>有</code>，
-      那就不是視覺問題，而是<strong>語言模型的先驗蓋過了實際看到的字形</strong>。
-      只測句子的評測分不出這兩種情況。
+如果模型在單字層把 <code>冇</code> 認對、在句子層卻讀成 <code>有</code>，
+那就不是視覺問題，而是<strong>語言模型的先驗蓋過了實際看到的字形</strong>。
+只測句子的評測分不出這兩種情況。
     </p>
   </div>
 
   <h3>最小對立對</h3>
   <p class="small muted">
     資料集刻意收錄成對的書面語對照字（有、既、左、但等）作為基準線。
-    沒有基準線就無法判斷模型把 <code>冇</code> 讀成 <code>有</code>
-    究竟是視覺問題還是語言習慣問題。以下是設計時鎖定的部分字對：
+沒有基準線就無法判斷模型把 <code>冇</code> 讀成 <code>有</code>
+究竟是視覺問題還是語言習慣問題。以下是設計時鎖定的部分字對：
   </p>
 
   <div class="pairs">
@@ -219,7 +219,7 @@
 
   <p class="small muted">
     擴展區字元佔單字層 14%，遠高於自然語料中的比例。這是刻意打平長尾的結果：
-    按語料頻率抽樣的話，高頻字會塞滿整個評測集，而罕見字一次都不會出現。
+按語料頻率抽樣的話，高頻字會塞滿整個評測集，而罕見字一次都不會出現。
   </p>
 </section>
 
@@ -228,7 +228,7 @@
   <p class="lead">資料實際長什麼樣。</p>
   <p class="small muted">
     紅色標示的是粵語特有字。可依層級、難度篩選，或只看擴展區（Unicode Extension）
-    字元與最小對立對（minimal pair）。
+字元與最小對立對（minimal pair）。
   </p>
 
   <div class="browser" id="browser">
@@ -270,8 +270,8 @@
   <p class="lead">模型在粵語字上的表現。</p>
   <p class="small muted">
     兩個同為 4B 參數的視覺語言模型，在 NVIDIA L40S 上以相同 prompt
-    與解碼參數跑完整 4,930 張。指標採 OCR 慣例：CER（字元錯誤率，越低越好）、
-    ACC（整句完全正確率）、1−NED（正規化編輯相似度）。
+與解碼參數跑完整 4,930 張。指標採 OCR 慣例：CER（字元錯誤率，越低越好）、
+ACC（整句完全正確率）、1−NED（正規化編輯相似度）。
   </p>
 
   <div class="pending">
@@ -304,8 +304,8 @@
   <h3>先導觀察</h3>
   <p>
     小量測試已經看得出系統性的替換行為。兩個模型都把粵語字 <code>㓎</code>
-    讀成字形相近的標準漢字，InternVL3.5 更是每一次都固定輸出 <code>浸</code>。
-    這不是隨機辨錯，而是穩定的錯誤偏好。
+讀成字形相近的標準漢字，InternVL3.5 更是每一次都固定輸出 <code>浸</code>。
+這不是隨機辨錯，而是穩定的錯誤偏好。
   </p>
 </section>
 
@@ -351,7 +351,7 @@
   </p>
   <p class="disclosure" style="border:0;padding-top:12px">
     本頁內容與資料集生成程式由 Claude（Anthropic）輔助產出，
-    所有數據、方法與敘述均經作者人工審核確認。
+所有數據、方法與敘述均經作者人工審核確認。
   </p>
 </footer>
 
