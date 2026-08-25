@@ -117,10 +117,10 @@ zh:
   why_gap_heading: |
     現有資源的不足
   why_gap_intro: |
-    香港的日常書寫大量使用標準中文沒有的字，例如
-    <span class="cjk-big">嘅、咗、冇、喺、𨋢</span>。
-    這些字在主流 OCR 的訓練資料中極少出現，模型辨識起來相當吃力。
-    我們在盤點現有資源時發現三件事：
+    粵語書寫大量使用<span class="cjk-big">嘅、咗、冇、喺、𨋢</span>這類字，
+    較少出現在書面文章與台灣繁體中文的使用習慣裡，卻有廣大的使用者與多元的
+    情境——香港城市裡的招牌、廣告、塗鴉，日常隨處可見。這些字在主流 OCR 的
+    訓練資料中極少出現，模型辨識起來相當吃力。我們在盤點現有資源時發現三件事：
   why_gap_li1: |
     <strong>影像資料集較少。</strong>
     HuggingFace 上搜得到的粵語資料集有二十多個，內容都是純文字或語音，
@@ -140,9 +140,10 @@ zh:
   why_contrib_heading: |
     本專案的貢獻
   why_contrib_li1: |
-    <strong>一份可重現的粵語 OCR 評測集。</strong>
-    三層結構（單字、詞彙、短句），涵蓋 154 個粵語特有字，固定亂數種子，
-    同一份語料可產出逐位元相同的結果。
+    <strong>一份可重現的粵語 OCR 資料集。</strong>
+    把粵語字詞、語句都製作成圖片，供模型評測與訓練使用。三層結構（單字、
+    詞彙、短句），涵蓋 154 個粵語特有字，固定亂數種子，同一份語料可產出
+    逐位元相同的結果。
   why_contrib_li2: |
     <strong>能區分兩種失敗原因的實驗設計。</strong>
     同一個字同時出現在單字層與句子層，可以分辨模型是「看不清楚」
@@ -486,11 +487,13 @@ en:
   why_gap_heading: |
     Gaps in existing resources
   why_gap_intro: |
-    Everyday writing in Hong Kong is full of characters that do not exist in
-    Standard Written Chinese, for example
-    <span class="cjk-big">嘅, 咗, 冇, 喺, 𨋢</span>.
-    These characters barely appear in mainstream OCR training data, and models
-    struggle with them. Surveying what already exists turned up three gaps:
+    Written Cantonese relies heavily on characters like
+    <span class="cjk-big">嘅, 咗, 冇, 喺, 𨋢</span> — ones that rarely appear
+    in formal writing or in Traditional Chinese as used in Taiwan, yet serve a
+    large population across everyday settings: shop signs, advertisements,
+    graffiti across Hong Kong's streets. These characters barely appear in
+    mainstream OCR training data, and models struggle to read them. Surveying
+    what already exists turned up three gaps:
   why_gap_li1: |
     <strong>No image dataset.</strong>
     There are twenty-odd Cantonese datasets on HuggingFace, all of them text or
@@ -513,10 +516,11 @@ en:
   why_contrib_heading: |
     What this project contributes
   why_contrib_li1: |
-    <strong>A reproducible Cantonese OCR benchmark.</strong>
-    Three tiers (character, word, sentence) covering 154 Cantonese-specific
-    characters, with a fixed random seed so the same corpus produces
-    bit-identical output.
+    <strong>A reproducible Cantonese OCR dataset.</strong>
+    Cantonese characters, words and sentences are all rendered as images for
+    model evaluation and training. Three tiers (character, word, sentence)
+    covering 154 Cantonese-specific characters, with a fixed random seed so
+    the same corpus produces bit-identical output.
   why_contrib_li2: |
     <strong>A design that separates two kinds of failure.</strong>
     The same character appears in both the character tier and the sentence tier,

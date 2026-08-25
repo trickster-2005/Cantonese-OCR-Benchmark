@@ -68,11 +68,13 @@ image-based Cantonese OCR benchmark and opens the pipeline that generates it.
 
   <h3>Gaps in existing resources</h3>
   <p>
-    Everyday writing in Hong Kong is full of characters that do not exist in
-Standard Written Chinese, for example
-<span class="cjk-big">嘅, 咗, 冇, 喺, 𨋢</span>.
-These characters barely appear in mainstream OCR training data, and models
-struggle with them. Surveying what already exists turned up three gaps:
+    Written Cantonese relies heavily on characters like
+<span class="cjk-big">嘅, 咗, 冇, 喺, 𨋢</span> — ones that rarely appear
+in formal writing or in Traditional Chinese as used in Taiwan, yet serve a
+large population across everyday settings: shop signs, advertisements,
+graffiti across Hong Kong's streets. These characters barely appear in
+mainstream OCR training data, and models struggle to read them. Surveying
+what already exists turned up three gaps:
   </p>
   <ul>
     <li>
@@ -104,10 +106,11 @@ the sentence inverts.
   <h3>What this project contributes</h3>
   <ul>
     <li>
-      <strong>A reproducible Cantonese OCR benchmark.</strong>
-Three tiers (character, word, sentence) covering 154 Cantonese-specific
-characters, with a fixed random seed so the same corpus produces
-bit-identical output.
+      <strong>A reproducible Cantonese OCR dataset.</strong>
+Cantonese characters, words and sentences are all rendered as images for
+model evaluation and training. Three tiers (character, word, sentence)
+covering 154 Cantonese-specific characters, with a fixed random seed so
+the same corpus produces bit-identical output.
     </li>
     <li>
       <strong>A design that separates two kinds of failure.</strong>
