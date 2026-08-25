@@ -5,8 +5,8 @@ generates it.
 
 **[English](#english) · [繁體中文](#繁體中文)**
 
-Project page: `https://trickster-2005.github.io/Cantonese-OCR-Benchmark/`
-Dataset: `https://huggingface.co/datasets/trickster-2005/cantonese-benchmark-synth`
+Project page: [trickster-2005.github.io/Cantonese-OCR-Benchmark](https://trickster-2005.github.io/Cantonese-OCR-Benchmark/)
+Dataset: [huggingface.co/datasets/trickster-2005/cantonese-benchmark-synth](https://huggingface.co/datasets/trickster-2005/cantonese-benchmark-synth)
 
 OCF AI Research Internship 2026.
 

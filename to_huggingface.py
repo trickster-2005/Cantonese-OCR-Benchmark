@@ -232,8 +232,8 @@ A synthetic OCR benchmark for written Cantonese (廣東話).
 
 **[English](#english) · [繁體中文](#繁體中文)**
 
-- Project page: {PAGE_URL}
-- Code: {GH_REPO}
+- Project page: [{PAGE_URL}]({PAGE_URL})
+- Code: [{GH_REPO}]({GH_REPO})
 - OCF AI Research Internship 2026
 
 ---
