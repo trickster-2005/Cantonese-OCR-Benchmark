@@ -30,16 +30,15 @@
   </div>
 
   <nav class="sidebar__nav">
-    <a class="toc-link is-active" href="#why"><span class="toc-num">01</span><span>Motivation<span class="toc-en">動機與目標</span></span></a>
-    <a class="toc-link" href="#dataset"><span class="toc-num">02</span><span>Dataset<span class="toc-en">資料集內容</span></span></a>
-    <a class="toc-link" href="#results"><span class="toc-num">03</span><span>Results<span class="toc-en">評測結果</span></span></a>
-    <a class="toc-link" href="#how"><span class="toc-num">04</span><span>Method<span class="toc-en">製作方式</span></span></a>
-    <a class="toc-link" href="#next"><span class="toc-num">05</span><span>Outlook<span class="toc-en">展望</span></span></a>
-    <a class="toc-link" href="#samples"><span class="toc-num">06</span><span>Samples<span class="toc-en">樣本預覽</span></span></a>
+    <a class="toc-link is-active" href="#why"><span class="toc-num">01</span><span>Motivation</span></a>
+    <a class="toc-link" href="#dataset"><span class="toc-num">02</span><span>Dataset</span></a>
+    <a class="toc-link" href="#results"><span class="toc-num">03</span><span>Results</span></a>
+    <a class="toc-link" href="#how"><span class="toc-num">04</span><span>Method</span></a>
+    <a class="toc-link" href="#next"><span class="toc-num">05</span><span>Outlook</span></a>
+    <a class="toc-link" href="#samples"><span class="toc-num">06</span><span>Samples</span></a>
   </nav>
 
   <div class="sidebar__footer">
-    <a class="lang-switch" href="../" hreflang="zh-Hant">繁體中文</a>
     <a href="https://huggingface.co/datasets/trickster-2005/cantonese-benchmark-synth">HuggingFace ↗</a>
     <a href="https://github.com/trickster-2005/Cantonese-OCR-Benchmark">GitHub ↗</a>
     <span>CC BY-SA 4.0</span>
@@ -51,15 +50,15 @@
 <header class="hero">
   <h1>A Cantonese OCR benchmark</h1>
   <p class="sub">
-    4,930 synthetic text-line images, built to test whether vision-language models
-    can actually read the characters used in written Cantonese.
+    Mainstream OCR cannot read the characters used in written Cantonese, and the
+    Cantonese datasets that exist are all text or audio. This project builds an
+    image-based Cantonese OCR benchmark and opens the pipeline that generates it.
   </p>
   <div class="badges">
     <a class="badge" href="https://huggingface.co/datasets/trickster-2005/cantonese-benchmark-synth">HuggingFace ↗</a>
     <a class="badge" href="https://github.com/trickster-2005/Cantonese-OCR-Benchmark">GitHub ↗</a>
     <span class="badge">CC BY-SA 4.0</span>
     <span class="badge">4,930 images</span>
-    <span class="badge">154 Cantonese chars</span>
   </div>
 </header>
 
@@ -196,70 +195,25 @@
 
   <h3>Composition</h3>
 
-  <figure class="figure">
-    <figcaption>Images per tier</figcaption>
-    <div class="bars">
-      <div class="bar-row"><span class="bar-label">Character</span>
-        <div class="bar-track"><div class="bar-fill" style="width:58.4%"></div></div>
-        <span class="bar-val">1,162</span></div>
-      <div class="bar-row"><span class="bar-label">Word</span>
-        <div class="bar-track"><div class="bar-fill b2" style="width:89.6%"></div></div>
-        <span class="bar-val">1,781</span></div>
-      <div class="bar-row"><span class="bar-label">Sentence</span>
-        <div class="bar-track"><div class="bar-fill b3" style="width:100%"></div></div>
-        <span class="bar-val">1,987</span></div>
-    </div>
-  </figure>
-
-  <figure class="figure">
-    <figcaption>Images per difficulty level</figcaption>
-    <div class="bars">
-      <div class="bar-row"><span class="bar-label">Clean</span>
-        <div class="bar-track"><div class="bar-fill" style="width:71.1%"></div></div>
-        <span class="bar-val">1,215</span></div>
-      <div class="bar-row"><span class="bar-label">Light</span>
-        <div class="bar-track"><div class="bar-fill b2" style="width:100%"></div></div>
-        <span class="bar-val">1,709</span></div>
-      <div class="bar-row"><span class="bar-label">Medium</span>
-        <div class="bar-track"><div class="bar-fill b3" style="width:73.1%"></div></div>
-        <span class="bar-val">1,250</span></div>
-      <div class="bar-row"><span class="bar-label">Hard</span>
-        <div class="bar-track"><div class="bar-fill b4" style="width:44.2%"></div></div>
-        <span class="bar-val">756</span></div>
-    </div>
-  </figure>
-
-  <figure class="figure">
-    <figcaption>Character tier by Unicode block</figcaption>
-    <div class="bars">
-      <div class="bar-row"><span class="bar-label">Basic</span>
-        <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
-        <span class="bar-val">994</span></div>
-      <div class="bar-row"><span class="bar-label">Ext. B+</span>
-        <div class="bar-track"><div class="bar-fill b3" style="width:14.1%"></div></div>
-        <span class="bar-val">140</span></div>
-      <div class="bar-row"><span class="bar-label">Ext. A</span>
-        <div class="bar-track"><div class="bar-fill b4" style="width:2.8%"></div></div>
-        <span class="bar-val">28</span></div>
-    </div>
-    <p class="small muted" style="margin:14px 0 0">
-      Extension-block characters make up 14% of the character tier, far above their
-      natural corpus frequency. This is deliberate long-tail flattening: sampling by
-      frequency would fill the benchmark with common characters and never show the
-      rare ones at all.
-    </p>
-  </figure>
-
   <div class="tbl-scroll">
   <table>
     <thead><tr><th>Aspect</th><th>Breakdown</th></tr></thead>
     <tbody>
+      <tr><td>Difficulty</td><td>clean 1,215 / light 1,709 / medium 1,250 / hard 756</td></tr>
+      <tr><td>Character tier by Unicode block</td><td>basic 994 / Extension A 28 / Extension B+ 140</td></tr>
       <tr><td>Corpus source</td><td>rime-cantonese 1,781 / character set 1,162 / HKCanCor 999 / Wikipedia 988</td></tr>
       <tr><td>Image format</td><td>48 px tall, JPEG, 41 MB total</td></tr>
       <tr><td>Per-sample metadata</td><td>tier, difficulty, font, corpus source, Unicode block, corpus frequency, minimal-pair marker</td></tr>
     </tbody>
   </table>
   </div>
+
+  <p class="small muted">
+    Extension-block characters make up 14% of the character tier, far above their
+    natural corpus frequency. This is deliberate long-tail flattening: sampling by
+    frequency would fill the benchmark with common characters and never show the
+    rare ones at all.
+  </p>
 </section>
 
 <section id="results">
@@ -298,22 +252,6 @@
     </tbody>
   </table>
   </div>
-
-  <figure class="figure">
-    <figcaption>Accuracy by tier (pending evaluation)</figcaption>
-    <div class="bars">
-      <div class="bar-row"><span class="bar-label">Character</span>
-        <div class="bar-track"></div><span class="bar-val">—</span></div>
-      <div class="bar-row"><span class="bar-label">Word</span>
-        <div class="bar-track"></div><span class="bar-val">—</span></div>
-      <div class="bar-row"><span class="bar-label">Sentence</span>
-        <div class="bar-track"></div><span class="bar-val">—</span></div>
-    </div>
-    <div class="legend">
-      <span><i style="background:var(--accent-qwen-4b)"></i>Qwen3-VL 4B</span>
-      <span><i style="background:var(--accent-internvl)"></i>InternVL3.5 4B</span>
-    </div>
-  </figure>
 
   <h3>Early observation</h3>
   <p>
@@ -436,6 +374,8 @@
 
 </div></main>
 </div>
+
+<a class="lang-float" href="../" hreflang="zh-Hant">繁體中文</a>
 
 <script>
 window.CB_I18N = {

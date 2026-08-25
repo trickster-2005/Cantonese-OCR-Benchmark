@@ -30,16 +30,15 @@
   </div>
 
   <nav class="sidebar__nav">
-    <a class="toc-link is-active" href="#why"><span class="toc-num">01</span><span>動機與目標<span class="toc-en">Motivation</span></span></a>
-    <a class="toc-link" href="#dataset"><span class="toc-num">02</span><span>資料集內容<span class="toc-en">Dataset</span></span></a>
-    <a class="toc-link" href="#results"><span class="toc-num">03</span><span>評測結果<span class="toc-en">Results</span></span></a>
-    <a class="toc-link" href="#how"><span class="toc-num">04</span><span>製作方式<span class="toc-en">Method</span></span></a>
-    <a class="toc-link" href="#next"><span class="toc-num">05</span><span>展望<span class="toc-en">Outlook</span></span></a>
-    <a class="toc-link" href="#samples"><span class="toc-num">06</span><span>樣本預覽<span class="toc-en">Samples</span></span></a>
+    <a class="toc-link is-active" href="#why"><span class="toc-num">01</span><span>動機與目標</span></a>
+    <a class="toc-link" href="#dataset"><span class="toc-num">02</span><span>資料集內容</span></a>
+    <a class="toc-link" href="#results"><span class="toc-num">03</span><span>評測結果</span></a>
+    <a class="toc-link" href="#how"><span class="toc-num">04</span><span>製作方式</span></a>
+    <a class="toc-link" href="#next"><span class="toc-num">05</span><span>展望</span></a>
+    <a class="toc-link" href="#samples"><span class="toc-num">06</span><span>樣本預覽</span></a>
   </nav>
 
   <div class="sidebar__footer">
-    <a class="lang-switch" href="en/" hreflang="en">English</a>
     <a href="https://huggingface.co/datasets/trickster-2005/cantonese-benchmark-synth">HuggingFace ↗</a>
     <a href="https://github.com/trickster-2005/Cantonese-OCR-Benchmark">GitHub ↗</a>
     <span>CC BY-SA 4.0</span>
@@ -51,15 +50,14 @@
 <header class="hero">
   <h1>粵語 OCR 評測資料集</h1>
   <p class="sub">
-    4,930 張合成文字行影像，用來測視覺語言模型（vision-language model）
-    認不認得粵語書寫特有的字。
+    粵語書寫用的字，主流 OCR 認不得；而現有的粵語資料集，全是文字與語音。
+    本專案製作一份影像形式的粵語 OCR 評測資料集，並公開整套生成管線。
   </p>
   <div class="badges">
     <a class="badge" href="https://huggingface.co/datasets/trickster-2005/cantonese-benchmark-synth">HuggingFace ↗</a>
     <a class="badge" href="https://github.com/trickster-2005/Cantonese-OCR-Benchmark">GitHub ↗</a>
     <span class="badge">CC BY-SA 4.0</span>
     <span class="badge">4,930 張</span>
-    <span class="badge">154 粵語字</span>
   </div>
 </header>
 
@@ -186,68 +184,23 @@
 
   <h3>組成分布</h3>
 
-  <figure class="figure">
-    <figcaption>層級分布（張數）</figcaption>
-    <div class="bars">
-      <div class="bar-row"><span class="bar-label">單字</span>
-        <div class="bar-track"><div class="bar-fill" style="width:58.4%"></div></div>
-        <span class="bar-val">1,162</span></div>
-      <div class="bar-row"><span class="bar-label">詞彙</span>
-        <div class="bar-track"><div class="bar-fill b2" style="width:89.6%"></div></div>
-        <span class="bar-val">1,781</span></div>
-      <div class="bar-row"><span class="bar-label">短句</span>
-        <div class="bar-track"><div class="bar-fill b3" style="width:100%"></div></div>
-        <span class="bar-val">1,987</span></div>
-    </div>
-  </figure>
-
-  <figure class="figure">
-    <figcaption>難度分布（張數）</figcaption>
-    <div class="bars">
-      <div class="bar-row"><span class="bar-label">乾淨</span>
-        <div class="bar-track"><div class="bar-fill" style="width:71.1%"></div></div>
-        <span class="bar-val">1,215</span></div>
-      <div class="bar-row"><span class="bar-label">輕微</span>
-        <div class="bar-track"><div class="bar-fill b2" style="width:100%"></div></div>
-        <span class="bar-val">1,709</span></div>
-      <div class="bar-row"><span class="bar-label">中等</span>
-        <div class="bar-track"><div class="bar-fill b3" style="width:73.1%"></div></div>
-        <span class="bar-val">1,250</span></div>
-      <div class="bar-row"><span class="bar-label">困難</span>
-        <div class="bar-track"><div class="bar-fill b4" style="width:44.2%"></div></div>
-        <span class="bar-val">756</span></div>
-    </div>
-  </figure>
-
-  <figure class="figure">
-    <figcaption>單字層 Unicode 分區（張數）</figcaption>
-    <div class="bars">
-      <div class="bar-row"><span class="bar-label">基本區</span>
-        <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
-        <span class="bar-val">994</span></div>
-      <div class="bar-row"><span class="bar-label">擴展 B 區</span>
-        <div class="bar-track"><div class="bar-fill b3" style="width:14.1%"></div></div>
-        <span class="bar-val">140</span></div>
-      <div class="bar-row"><span class="bar-label">擴展 A 區</span>
-        <div class="bar-track"><div class="bar-fill b4" style="width:2.8%"></div></div>
-        <span class="bar-val">28</span></div>
-    </div>
-    <p class="small muted" style="margin:14px 0 0">
-      擴展區字元佔單字層 14%，遠高於自然語料中的比例。這是刻意打平長尾的結果：
-      按語料頻率抽樣的話，高頻字會塞滿整個評測集，而罕見字一次都不會出現。
-    </p>
-  </figure>
-
   <div class="tbl-scroll">
   <table>
     <thead><tr><th>面向</th><th>分布</th></tr></thead>
     <tbody>
+      <tr><td>難度</td><td>乾淨 1,215／輕微 1,709／中等 1,250／困難 756</td></tr>
+      <tr><td>單字層 Unicode 分區</td><td>基本區 994／擴展 A 區 28／擴展 B 區以上 140</td></tr>
       <tr><td>語料來源</td><td>rime-cantonese 1,781／字表 1,162／HKCanCor 999／維基百科 988</td></tr>
       <tr><td>影像規格</td><td>高度 48 px，JPEG，共 41 MB</td></tr>
       <tr><td>每筆 metadata</td><td>層級、難度、字型、語料來源、Unicode 分區、語料頻率、對立對標記</td></tr>
     </tbody>
   </table>
   </div>
+
+  <p class="small muted">
+    擴展區字元佔單字層 14%，遠高於自然語料中的比例。這是刻意打平長尾的結果：
+    按語料頻率抽樣的話，高頻字會塞滿整個評測集，而罕見字一次都不會出現。
+  </p>
 </section>
 
 <section id="results">
@@ -285,22 +238,6 @@
     </tbody>
   </table>
   </div>
-
-  <figure class="figure">
-    <figcaption>各層級正確率比較（待評測完成後填入）</figcaption>
-    <div class="bars">
-      <div class="bar-row"><span class="bar-label">單字層</span>
-        <div class="bar-track"></div><span class="bar-val">—</span></div>
-      <div class="bar-row"><span class="bar-label">詞彙層</span>
-        <div class="bar-track"></div><span class="bar-val">—</span></div>
-      <div class="bar-row"><span class="bar-label">短句層</span>
-        <div class="bar-track"></div><span class="bar-val">—</span></div>
-    </div>
-    <div class="legend">
-      <span><i style="background:var(--accent-qwen-4b)"></i>Qwen3-VL 4B</span>
-      <span><i style="background:var(--accent-internvl)"></i>InternVL3.5 4B</span>
-    </div>
-  </figure>
 
   <h3>先導觀察</h3>
   <p>
@@ -420,6 +357,8 @@
 
 </div></main>
 </div>
+
+<a class="lang-float" href="en/" hreflang="en">English</a>
 
 <script>
 window.CB_I18N = {

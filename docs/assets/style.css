@@ -112,13 +112,6 @@ body {
 }
 .sidebar__footer a { color: var(--color-brand); text-decoration: none; }
 .sidebar__footer a:hover { text-decoration: underline; }
-.lang-switch {
-  display: inline-block; border: 1px solid var(--color-border);
-  border-radius: 999px; padding: 4px 12px; font-size: 12px;
-  color: var(--color-body); text-decoration: none; background: var(--color-surface);
-  align-self: flex-start; transition: all .14s;
-}
-.lang-switch:hover { border-color: var(--color-brand); color: var(--color-brand); }
 
 /* ---------------------------------------------------------------- 內容 */
 
@@ -201,31 +194,24 @@ td.num, th.num { text-align: right; font-family: var(--font-mono);
            color: var(--color-ink); }
 .stat .k { font-size: 12px; color: var(--color-muted); margin-top: 5px; }
 
-/* ---------------------------------------------------------------- 圖表 */
+/* ---------------------------------------------------------------- 浮動語言鈕 */
 
-.figure {
+/* 固定在右下角。放側邊欄裡的話，行動版側邊欄收合成一排 pill 之後
+   語言切換會被擠到很難按，浮動的位置在兩種版面下都一致。 */
+.lang-float {
+  position: fixed; right: 20px; bottom: 20px; z-index: 40;
+  display: inline-flex; align-items: center; gap: 6px;
   background: var(--color-surface); border: 1px solid var(--color-border);
-  border-radius: 9px; padding: 18px 20px; margin: 20px 0;
+  border-radius: 999px; padding: 9px 16px;
+  font-size: 13px; font-weight: 500; color: var(--color-body);
+  text-decoration: none; box-shadow: 0 2px 10px rgba(16, 29, 38, 0.09);
+  transition: all .15s;
 }
-.figure figcaption {
-  font-size: 12px; color: var(--color-muted); margin-bottom: 14px;
-  font-weight: 600; letter-spacing: 0.02em;
+.lang-float:hover {
+  border-color: var(--color-brand); color: var(--color-brand);
+  box-shadow: 0 4px 14px rgba(16, 29, 38, 0.14);
 }
-.bars { display: flex; flex-direction: column; gap: 11px; }
-.bar-row { display: grid; grid-template-columns: 92px 1fr 62px; gap: 10px;
-           align-items: center; }
-.bar-label { font-size: 13px; color: var(--color-body); text-align: right; }
-.bar-track { background: #eef1f5; border-radius: 4px; height: 20px;
-             overflow: hidden; }
-.bar-fill { height: 100%; border-radius: 4px; background: var(--color-brand); }
-.bar-fill.b2 { background: #2a95ad; }
-.bar-fill.b3 { background: #57b3c4; }
-.bar-fill.b4 { background: #8ccfda; }
-.bar-val { font: 500 12.5px/1 var(--font-mono); color: var(--color-body); }
-.legend { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 14px;
-          font-size: 12px; color: var(--color-muted); }
-.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px;
-            margin-right: 5px; vertical-align: -1px; }
+.lang-float::before { content: "🌐"; font-size: 13px; }
 
 /* ---------------------------------------------------------------- 提示框 */
 
@@ -390,4 +376,5 @@ footer li { margin-bottom: 6px; }
   .bar-row { grid-template-columns: 74px 1fr 54px; gap: 8px; }
   .bar-label { font-size: 12px; }
   .draft-banner span + span::before { content: ""; display: block; margin: 0; }
+  .lang-float { right: 14px; bottom: 14px; padding: 8px 13px; font-size: 12.5px; }
 }
