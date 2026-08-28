@@ -1,5 +1,12 @@
 # CantoBench-Synth
 
+[![Code License: MIT](https://img.shields.io/badge/Code-MIT-yellow.svg)](LICENSE)
+[![Data License: CC BY-SA 4.0](https://img.shields.io/badge/Data-CC%20BY--SA%204.0-blue.svg)](DATA_LICENSE.md)
+
+Code in this repository is MIT licensed. The generated dataset is separately
+licensed CC BY-SA 4.0 (see [Licensing](#licensing) below). These cover two
+different things, so check which one applies before reusing something.
+
 A synthetic OCR benchmark for written Cantonese (廣東話), and the pipeline that
 generates it.
 
@@ -13,6 +20,11 @@ OCF AI Research Internship 2026.
 ---
 
 ## English
+
+This project is part of the Open Culture Foundation (OCF)'s 2026 AI Research
+Internship programme, running from 1 July to 30 August 2026 (roughly nine
+weeks). It was built independently by intern Yu-Tang Yu, with guidance and
+feedback from the foundation's team.
 
 ### Why this exists
 
@@ -433,6 +445,10 @@ the author.
 ---
 
 ## 繁體中文
+
+本專案收錄開放文化基金會（OCF）2026 年 AI 研究實習計畫的研究成果之中。實習期間
+為 2026 年 7 月 1 日至 8 月 30 日，計約 9 週。本專案由實習生游聿堂獨立製作，
+感謝基金會成員給予指導與建議。
 
 ### 為什麼做這個
 
