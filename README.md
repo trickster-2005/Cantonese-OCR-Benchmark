@@ -2,10 +2,13 @@
 
 [![Code License: MIT](https://img.shields.io/badge/Code-MIT-yellow.svg)](LICENSE)
 [![Data License: CC BY-SA 4.0](https://img.shields.io/badge/Data-CC%20BY--SA%204.0-blue.svg)](DATA_LICENSE.md)
+[![Report License: CC BY-SA 4.0](https://img.shields.io/badge/Report-CC%20BY--SA%204.0-lightgrey.svg)](#licensing)
 
 Code in this repository is MIT licensed. The generated dataset is separately
-licensed CC BY-SA 4.0 (see [Licensing](#licensing) below). These cover two
-different things, so check which one applies before reusing something.
+licensed CC BY-SA 4.0, and the written report content (this README and the
+project page) is also CC BY-SA 4.0 (see [Licensing](#licensing) below). These
+are three different things, so check which one applies before reusing
+something.
 
 A synthetic OCR benchmark for written Cantonese (廣東話), and the pipeline that
 generates it.
@@ -361,6 +364,7 @@ Reproduce this table with `python analyze_eval.py` after running `evaluate.py`.
 | Component | Licence |
 |---|---|
 | Generated dataset | **CC BY-SA 4.0** |
+| Report content (this README, the project page) | **CC BY-SA 4.0** |
 | Code in this repository | MIT |
 | Fonts | SIL OFL 1.1 (not redistributed) |
 
@@ -736,6 +740,7 @@ python evaluate.py                   # 完整執行，可續跑
 | 項目 | 授權 |
 |---|---|
 | 產出的資料集 | **CC BY-SA 4.0** |
+| 報告內容（本 README、專案頁） | **CC BY-SA 4.0** |
 | 本 repo 的程式碼 | MIT |
 | 字型 | SIL OFL 1.1（不隨資料集散布） |
 

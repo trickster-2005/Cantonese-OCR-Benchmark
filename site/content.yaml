@@ -383,6 +383,8 @@ zh:
   # 中文用全形冒號、全形括號，不要跟英文版混用標點
   footer_licence_dataset_line: |
     資料集：{{shared.licence_dataset}}
+  footer_licence_report_line: |
+    報告內容：{{shared.licence_dataset}}
   footer_licence_code_line: |
     程式碼：{{shared.licence_code}}
   footer_licence_font_line: |
@@ -775,6 +777,8 @@ en:
   # 英文用半形冒號後接一個空格、半形括號，不要跟中文版混用標點
   footer_licence_dataset_line: |
     Dataset: {{shared.licence_dataset}}
+  footer_licence_report_line: |
+    Report: {{shared.licence_dataset}}
   footer_licence_code_line: |
     Code: {{shared.licence_code}}
   footer_licence_font_line: |
