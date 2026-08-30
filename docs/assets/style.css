@@ -137,7 +137,7 @@ header.hero .sub {
 a.badge:hover { border-color: var(--color-brand); color: var(--color-brand); }
 
 .cta-button {
-  display: inline-block; margin-top: 24px;
+  display: inline-block; margin: 6px 0 22px;
   font: 600 14px/1 var(--font-body); text-decoration: none;
   background: var(--color-brand); color: #fff; border: 1px solid var(--color-brand);
   border-radius: 8px; padding: 11px 18px; transition: all .14s;
