@@ -1,0 +1,108 @@
+/* 評測結果瀏覽器專屬樣式。共用主站 ../assets/style.css 的 CSS 變數與基礎排版，
+   這裡只補分頁、對錯標記、評測卡片這些主站沒有的新元件。 */
+
+.eval-page .content { padding-bottom: 60px; }
+
+.esummary {
+  display: grid; gap: 1px; background: var(--color-border);
+  border: 1px solid var(--color-border); border-radius: 9px; overflow: hidden;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); margin: 20px 0 28px;
+}
+.esummary > div { background: var(--color-surface); padding: 14px 16px; }
+.esummary .v { font: 600 22px/1.2 var(--font-mono); color: var(--color-ink); }
+.esummary .k { font-size: 12px; color: var(--color-muted); margin-top: 4px; }
+
+.efilters {
+  display: flex; flex-wrap: wrap; gap: 8px 18px; padding: 15px 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+.efgroup { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.efgroup > .eflabel {
+  font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--color-muted); font-weight: 600;
+}
+.chip {
+  font: 500 12.5px/1 var(--font-body); border: 1px solid var(--color-border);
+  background: var(--color-surface); color: var(--color-body);
+  border-radius: 999px; padding: 6px 12px; cursor: pointer; transition: all .13s;
+}
+.chip:hover { border-color: var(--color-brand); color: var(--color-brand); }
+.chip[aria-pressed="true"] {
+  background: var(--color-brand); border-color: var(--color-brand); color: #fff;
+}
+
+.etoolbar {
+  display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+  padding: 13px 0; justify-content: space-between;
+}
+.esearch, .esort {
+  font: 13.5px var(--font-body); border: 1px solid var(--color-border);
+  border-radius: 7px; padding: 7px 11px; background: var(--color-surface);
+  color: var(--color-ink);
+}
+.esearch { min-width: 200px; flex: 1 1 200px; }
+.esearch:focus, .esort:focus { outline: 2px solid var(--color-brand); outline-offset: -1px; }
+.ecount { font-size: 12.5px; color: var(--color-muted); font-family: var(--font-mono); }
+
+.egrid {
+  display: grid; gap: 11px; margin-top: 4px;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+}
+.ecard {
+  width: 100%; min-width: 0; margin: 0;
+  border: 1px solid var(--color-border); border-radius: 8px; overflow: hidden;
+  background: var(--color-surface); display: flex; flex-direction: column;
+}
+.ecard.wide { grid-column: 1 / -1; }
+.eshot {
+  padding: 12px; background: #f8fafb;
+  display: flex; align-items: center; justify-content: center;
+  min-height: 74px; overflow-x: auto;
+}
+.eshot img { height: 48px; width: auto; max-width: none; display: block; border-radius: 2px; }
+.emeta { padding: 10px 12px 12px; border-top: 1px solid var(--color-border); }
+.erow { display: flex; gap: 8px; align-items: baseline; margin-bottom: 5px;
+        font-size: 14px; line-height: 1.5; }
+.erow:last-of-type { margin-bottom: 9px; }
+.elabel { font: 600 10.5px/1 var(--font-mono); color: var(--color-muted);
+          flex: none; padding-top: 3px; text-transform: uppercase; }
+.egt { word-break: break-all; }
+.pred-ok { color: var(--color-ink); word-break: break-all; }
+.pred-bad { color: var(--accent-danger); font-weight: 600; word-break: break-all; }
+.pred-empty { color: var(--color-muted); font-style: italic; }
+
+.etags { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
+.tag {
+  font: 500 10px/1 var(--font-mono); padding: 4px 6px; border-radius: 4px;
+  background: #f2f5f8; color: var(--color-muted); border: 1px solid var(--color-border);
+}
+.tag.ok { background: #eaf6ee; color: var(--color-ok, #2f7a44); border-color: #d3ecd9; }
+.tag.bad { background: #fdecec; color: var(--accent-danger); border-color: #f6d5d5; }
+.tag.ext, .tag.pair { background: #fdecec; color: var(--accent-danger); border-color: #f6d5d5; }
+.tag.num { font-family: var(--font-mono); }
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+       margin-right: 5px; vertical-align: -1px; }
+.dot.qwen { background: var(--accent-qwen-4b); }
+.dot.internvl { background: var(--accent-internvl); }
+
+.empty { padding: 34px 0; color: var(--color-muted); text-align: center; grid-column: 1 / -1; }
+
+.epager {
+  display: flex; flex-wrap: wrap; gap: 4px; justify-content: center;
+  margin-top: 24px;
+}
+.epage {
+  font: 500 12.5px/1 var(--font-mono); border: 1px solid var(--color-border);
+  background: var(--color-surface); color: var(--color-body);
+  border-radius: 6px; padding: 7px 11px; cursor: pointer; min-width: 34px;
+}
+.epage:hover:not(:disabled) { border-color: var(--color-brand); color: var(--color-brand); }
+.epage.current { background: var(--color-brand); border-color: var(--color-brand); color: #fff; }
+.epage:disabled { opacity: 0.35; cursor: default; }
+.epage-ellipsis { padding: 7px 4px; color: var(--color-muted); font-size: 12.5px; }
+
+@media (max-width: 560px) {
+  .egrid { grid-template-columns: 1fr; }
+  .esearch { min-width: 0; }
+}

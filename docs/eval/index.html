@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>評測結果瀏覽器 | CantoBench</title>
+<meta name="description" content="CantoBench 完整評測結果：9,860 筆逐張記錄，可依模型、層級、難度篩選與排序。">
+<link rel="alternate" hreflang="zh-Hant" href="./">
+<link rel="alternate" hreflang="en" href="en/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="assets/eval_style.css">
+</head>
+<body class="eval-page">
+
+<div class="draft-banner">
+  <span>🚧 草稿版本 Draft — 內容與版面仍在調整中，尚未定稿</span>
+  <span>🚧 Draft — content and layout are still being revised; not yet final</span>
+</div>
+
+<main class="content"><div class="wrap" style="max-width:1080px">
+
+<header class="hero" style="padding:40px 0 28px">
+  <p class="sidebar__eyebrow" style="margin:0 0 10px">
+    <a href="../">← CantoBench</a>
+  </p>
+  <h1 style="font-size:clamp(24px,3.4vw,32px)">評測結果瀏覽器</h1>
+  <p class="sub">
+    兩個模型在全部 4,930 張影像上的逐筆評測記錄，可依模型、層級、難度、對錯篩選，
+    按指標數值排序，或直接搜尋文字內容。
+  </p>
+  <div class="badges">
+    <a class="badge" href="../#results">← 回到評測結果章節</a>
+    <a class="badge" href="https://github.com/trickster-2005/Cantonese-OCR-Benchmark">GitHub repo</a>
+  </div>
+</header>
+
+<section id="eval-browser" style="padding-top:0;border-top:0">
+  <div class="esummary">
+    <div><div class="v">9,860</div><div class="k">評測記錄</div></div>
+    <div><div class="v">4,930</div><div class="k">影像</div></div>
+    <div><div class="v">2</div><div class="k">模型</div></div>
+    <div><div class="v">0</div><div class="k">失敗筆數</div></div>
+  </div>
+
+  <div class="efilters">
+    <div class="efgroup">
+      <span class="eflabel">模型</span>
+      <button class="chip" data-filter="model" data-value="all" aria-pressed="true">全部</button>
+      <button class="chip" data-filter="model" data-value="qwen3vl4b" aria-pressed="false">Qwen3-VL 4B</button>
+      <button class="chip" data-filter="model" data-value="internvl35_4b" aria-pressed="false">InternVL3.5 4B</button>
+    </div>
+    <div class="efgroup">
+      <span class="eflabel">層級</span>
+      <button class="chip" data-filter="tier" data-value="all" aria-pressed="true">全部</button>
+      <button class="chip" data-filter="tier" data-value="char" aria-pressed="false">單字</button>
+      <button class="chip" data-filter="tier" data-value="word" aria-pressed="false">詞彙</button>
+      <button class="chip" data-filter="tier" data-value="sentence" aria-pressed="false">短句</button>
+    </div>
+    <div class="efgroup">
+      <span class="eflabel">難度</span>
+      <button class="chip" data-filter="difficulty" data-value="all" aria-pressed="true">全部</button>
+      <button class="chip" data-filter="difficulty" data-value="clean" aria-pressed="false">乾淨</button>
+      <button class="chip" data-filter="difficulty" data-value="light" aria-pressed="false">輕微</button>
+      <button class="chip" data-filter="difficulty" data-value="medium" aria-pressed="false">中等</button>
+      <button class="chip" data-filter="difficulty" data-value="hard" aria-pressed="false">困難</button>
+    </div>
+    <div class="efgroup">
+      <span class="eflabel">對錯</span>
+      <button class="chip" data-filter="correctness" data-value="all" aria-pressed="true">全部</button>
+      <button class="chip" data-filter="correctness" data-value="correct" aria-pressed="false">只看正確</button>
+      <button class="chip" data-filter="correctness" data-value="incorrect" aria-pressed="false">只看錯誤</button>
+    </div>
+    <div class="efgroup">
+      <span class="eflabel">篩選</span>
+      <button class="chip" data-filter="pair" data-value="all" aria-pressed="true">全部</button>
+      <button class="chip" data-filter="pair" data-value="pair" aria-pressed="false">最小對立對</button>
+    </div>
+  </div>
+
+  <div class="etoolbar">
+    <input class="esearch" type="text" placeholder="搜尋正確答案或模型輸出的文字…">
+    <select class="esort">
+      <option value="default">預設順序</option>
+      <option value="cer_desc">CER 高到低</option>
+      <option value="cer_asc">CER 低到高</option>
+      <option value="acc_desc">ACC 正確優先</option>
+      <option value="acc_asc">ACC 錯誤優先</option>
+      <option value="len_desc">字數多到少</option>
+      <option value="len_asc">字數少到多</option>
+    </select>
+  </div>
+  <p class="ecount"></p>
+
+  <div class="egrid">
+    <noscript><p class="empty">評測瀏覽器需要 JavaScript。完整資料在 GitHub repo 的 output/eval_results.csv。</p></noscript>
+  </div>
+  <div class="epager"></div>
+</section>
+
+</div></main>
+
+<a class="lang-float" href="en/" hreflang="en">English</a>
+
+<script>
+window.EV_I18N = {
+  assetBase: "assets/",
+  tier: { char: "單字", word: "詞彙", sentence: "短句" },
+  diff: { clean: "乾淨", light: "輕微", medium: "中等", hard: "困難" },
+  correct: "正確", incorrect: "錯誤",
+  gt: "正確答案", pred: "模型輸出",
+  emptyOutput: "（無輸出）",
+  pairWith: "對照 %s",
+  showing: "顯示第 %1–%2 筆，共 %3 筆",
+  noMatch: "沒有符合條件的記錄。",
+  loadFail: "評測資料載入失敗。"
+};
+</script>
+<script src="assets/eval_app.js"></script>
+</body>
+</html>

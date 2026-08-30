@@ -338,6 +338,8 @@ zh:
     同一種整句正確率，只是分開只算「一個字」「一個詞」「一句話」或
     「Unicode 擴展區罕見字」這幾種樣本，看模型在哪種情境比較容易出錯。
 
+  results_browser_cta: |
+    瀏覽全部 9,860 筆評測結果 →
   results_observation_heading: |
     觀察
   results_obs1: |
@@ -726,6 +728,8 @@ en:
     a single character, a short word, a full sentence, or a rare Unicode
     Extension character — to see where each model actually falls apart.
 
+  results_browser_cta: |
+    Browse all 9,860 evaluation records →
   results_observation_heading: |
     Observations
   results_obs1: |

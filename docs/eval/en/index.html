@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evaluation Browser | CantoBench</title>
+<meta name="description" content="CantoBench full evaluation results: 9,860 individual records, filterable and sortable by model, tier and difficulty.">
+<link rel="alternate" hreflang="zh-Hant" href="../">
+<link rel="alternate" hreflang="en" href="./">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../assets/eval_style.css">
+</head>
+<body class="eval-page">
+
+<div class="draft-banner">
+  <span>🚧 草稿版本 Draft — 內容與版面仍在調整中，尚未定稿</span>
+  <span>🚧 Draft — content and layout are still being revised; not yet final</span>
+</div>
+
+<main class="content"><div class="wrap" style="max-width:1080px">
+
+<header class="hero" style="padding:40px 0 28px">
+  <p class="sidebar__eyebrow" style="margin:0 0 10px">
+    <a href="../../en/">← CantoBench</a>
+  </p>
+  <h1 style="font-size:clamp(24px,3.4vw,32px)">Evaluation Browser</h1>
+  <p class="sub">
+    Every individual evaluation record for both models across all 4,930
+    images. Filter by model, tier, difficulty and correctness, sort by
+    metric value, or search the text directly.
+  </p>
+  <div class="badges">
+    <a class="badge" href="../../en/#results">← Back to Results</a>
+    <a class="badge" href="https://github.com/trickster-2005/Cantonese-OCR-Benchmark">GitHub repo</a>
+  </div>
+</header>
+
+<section id="eval-browser" style="padding-top:0;border-top:0">
+  <div class="esummary">
+    <div><div class="v">9,860</div><div class="k">records</div></div>
+    <div><div class="v">4,930</div><div class="k">images</div></div>
+    <div><div class="v">2</div><div class="k">models</div></div>
+    <div><div class="v">0</div><div class="k">failures</div></div>
+  </div>
+
+  <div class="efilters">
+    <div class="efgroup">
+      <span class="eflabel">Model</span>
+      <button class="chip" data-filter="model" data-value="all" aria-pressed="true">All</button>
+      <button class="chip" data-filter="model" data-value="qwen3vl4b" aria-pressed="false">Qwen3-VL 4B</button>
+      <button class="chip" data-filter="model" data-value="internvl35_4b" aria-pressed="false">InternVL3.5 4B</button>
+    </div>
+    <div class="efgroup">
+      <span class="eflabel">Tier</span>
+      <button class="chip" data-filter="tier" data-value="all" aria-pressed="true">All</button>
+      <button class="chip" data-filter="tier" data-value="char" aria-pressed="false">Character</button>
+      <button class="chip" data-filter="tier" data-value="word" aria-pressed="false">Word</button>
+      <button class="chip" data-filter="tier" data-value="sentence" aria-pressed="false">Sentence</button>
+    </div>
+    <div class="efgroup">
+      <span class="eflabel">Difficulty</span>
+      <button class="chip" data-filter="difficulty" data-value="all" aria-pressed="true">All</button>
+      <button class="chip" data-filter="difficulty" data-value="clean" aria-pressed="false">Clean</button>
+      <button class="chip" data-filter="difficulty" data-value="light" aria-pressed="false">Light</button>
+      <button class="chip" data-filter="difficulty" data-value="medium" aria-pressed="false">Medium</button>
+      <button class="chip" data-filter="difficulty" data-value="hard" aria-pressed="false">Hard</button>
+    </div>
+    <div class="efgroup">
+      <span class="eflabel">Correctness</span>
+      <button class="chip" data-filter="correctness" data-value="all" aria-pressed="true">All</button>
+      <button class="chip" data-filter="correctness" data-value="correct" aria-pressed="false">Correct only</button>
+      <button class="chip" data-filter="correctness" data-value="incorrect" aria-pressed="false">Incorrect only</button>
+    </div>
+    <div class="efgroup">
+      <span class="eflabel">Filter</span>
+      <button class="chip" data-filter="pair" data-value="all" aria-pressed="true">All</button>
+      <button class="chip" data-filter="pair" data-value="pair" aria-pressed="false">Minimal pairs</button>
+    </div>
+  </div>
+
+  <div class="etoolbar">
+    <input class="esearch" type="text" placeholder="Search ground truth or model output…">
+    <select class="esort">
+      <option value="default">Default order</option>
+      <option value="cer_desc">CER high to low</option>
+      <option value="cer_asc">CER low to high</option>
+      <option value="acc_desc">ACC correct first</option>
+      <option value="acc_asc">ACC incorrect first</option>
+      <option value="len_desc">Length: long to short</option>
+      <option value="len_asc">Length: short to long</option>
+    </select>
+  </div>
+  <p class="ecount"></p>
+
+  <div class="egrid">
+    <noscript><p class="empty">The evaluation browser needs JavaScript. The full data is in output/eval_results.csv on GitHub.</p></noscript>
+  </div>
+  <div class="epager"></div>
+</section>
+
+</div></main>
+
+<a class="lang-float" href="../" hreflang="zh-Hant">繁體中文</a>
+
+<script>
+window.EV_I18N = {
+  assetBase: "../assets/",
+  tier: { char: "character", word: "word", sentence: "sentence" },
+  diff: { clean: "clean", light: "light", medium: "medium", hard: "hard" },
+  correct: "correct", incorrect: "incorrect",
+  gt: "Ground truth", pred: "Model output",
+  emptyOutput: "(empty output)",
+  pairWith: "pairs with %s",
+  showing: "Showing %1–%2 of %3 records",
+  noMatch: "No records match these filters.",
+  loadFail: "Could not load evaluation data."
+};
+</script>
+<script src="../assets/eval_app.js"></script>
+</body>
+</html>

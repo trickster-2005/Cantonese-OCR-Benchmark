@@ -48,12 +48,14 @@ PAGES = [
         lang="zh", html_lang="zh-Hant-TW", root="",
         zh_href="./", en_href="en/", xdefault_href="./",
         lang_float_href="en/", lang_float_hreflang="en",
+        eval_href="eval/",
         out=ROOT / "docs" / "index.html",
     ),
     dict(
         lang="en", html_lang="en", root="../",
         zh_href="../", en_href="./", xdefault_href="../",
         lang_float_href="../", lang_float_hreflang="zh-Hant",
+        eval_href="../eval/en/",
         out=ROOT / "docs" / "en" / "index.html",
     ),
 ]
