@@ -15,8 +15,6 @@
   --accent-warm: #b45309;
   --accent-qwen-4b: #3b82f6;
   --accent-internvl: #b45309;
-  --draft-bg: #fdf5e2;
-  --draft-ink: #7a5a12;
 
   --font-body: "Noto Sans TC", "Space Grotesk", system-ui, sans-serif;
   --font-display: "Space Grotesk", "Noto Sans TC", sans-serif;
@@ -37,22 +35,6 @@ body {
   font-size: 16px;
   line-height: 1.8;
   -webkit-font-smoothing: antialiased;
-}
-
-/* ---------------------------------------------------------------- 草稿橫幅 */
-
-.draft-banner {
-  background: var(--draft-bg);
-  color: var(--draft-ink);
-  font-size: 12.5px;
-  letter-spacing: 0.25px;
-  padding: 9px 16px;
-  text-align: center;
-  line-height: 1.6;
-}
-.draft-banner span { display: inline-block; }
-.draft-banner span + span::before {
-  content: "·"; margin: 0 10px; opacity: 0.5;
 }
 
 /* ---------------------------------------------------------------- 版面 */
@@ -388,6 +370,5 @@ footer li { margin-bottom: 6px; }
   .grid { grid-template-columns: 1fr; }
   .bar-row { grid-template-columns: 74px 1fr 54px; gap: 8px; }
   .bar-label { font-size: 12px; }
-  .draft-banner span + span::before { content: ""; display: block; margin: 0; }
   .lang-float { right: 14px; bottom: 14px; padding: 8px 13px; font-size: 12.5px; }
 }

@@ -76,7 +76,7 @@ shared:
 zh:
   # <title> 標籤與搜尋引擎摘要，不會顯示在頁面上
   meta_title: |
-    [草稿] 粵文 OCR 評測資料集 | OCF 2026
+    粵文 OCR 評測資料集 | OCF 2026
   meta_description: |
     粵語（廣東話）OCR 影像評測資料集。4,930 張合成文字行影像，涵蓋粵語特有字、詞彙與短句。
 
@@ -451,7 +451,7 @@ zh:
 
 en:
   meta_title: |
-    [Draft] Cantonese OCR Benchmark | OCF 2026
+    Cantonese OCR Benchmark | OCF 2026
   meta_description: |
     An image benchmark for Cantonese OCR. 4,930 synthetic text-line images covering Cantonese-specific characters, words and sentences.
 
