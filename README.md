@@ -446,6 +446,8 @@ The dataset generation code and project page were produced with assistance from
 Claude (Anthropic). All figures, methods and claims were reviewed and verified by
 the author.
 
+This report was funded by FreeSEED's surplus funds. Thanks to all FreeSEED donors.
+
 ---
 
 ## 繁體中文
@@ -805,3 +807,5 @@ python site/build_site.py
 
 資料集生成程式與專案頁由 Claude（Anthropic）輔助產出，
 所有數據、方法與敘述均經作者人工審核確認。
+
+本報告經費來自 FreeSEED 結餘款，感謝 FreeSEED 所有捐款人。
