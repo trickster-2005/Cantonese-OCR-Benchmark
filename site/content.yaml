@@ -404,6 +404,10 @@ zh:
     所有數據、方法與敘述均經作者人工審核確認。
   footer_funding: |
     本報告經費來自 FreeSEED 結餘款，感謝 FreeSEED 所有捐款人。
+  footer_intern: |
+    本專案收錄開放文化基金會（OCF）2026 年 AI 研究實習計畫的研究成果之中。實習期間
+    為 2026 年 7 月 1 日至 8 月 30 日，計約 9 週。本專案由實習生游聿堂獨立製作，
+    感謝基金會成員給予指導與建議。
 
   # 語言切換浮動按鈕
   lang_float_label: |
@@ -460,7 +464,7 @@ en:
   sidebar_title: |
     Cantonese OCR Benchmark
   sidebar_subtitle: |
-    粵文 OCR 評測資料集 · Yu-Tang Yu
+    粵文 OCR 評測資料集 · Yu-Tang You
 
   nav_why: |
     Motivation
@@ -804,6 +808,11 @@ en:
     by the author.
   footer_funding: |
     This report was funded by FreeSEED's surplus funds. Thanks to all FreeSEED donors.
+  footer_intern: |
+    This project is part of the Open Culture Foundation (OCF)'s 2026 AI Research
+    Internship programme, running from 1 July to 30 August 2026 (roughly nine
+    weeks). It was built independently by intern Yu-Tang You, with guidance and
+    feedback from the foundation's team.
 
   lang_float_label: |
     繁體中文

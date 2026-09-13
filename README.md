@@ -26,7 +26,7 @@ OCF AI Research Internship 2026.
 
 This project is part of the Open Culture Foundation (OCF)'s 2026 AI Research
 Internship programme, running from 1 July to 30 August 2026 (roughly nine
-weeks). It was built independently by intern Yu-Tang Yu, with guidance and
+weeks). It was built independently by intern Yu-Tang You, with guidance and
 feedback from the foundation's team.
 
 ### Why this exists
@@ -431,7 +431,7 @@ producing a page with a raw `{{some_key}}` showing on screen.
 ```bibtex
 @misc{cantobench2026,
   title  = {CantoBench-Synth: A Synthetic OCR Benchmark for Written Cantonese},
-  author = {Yu, Yu-Tang},
+  author = {You, Yu-Tang},
   year   = {2026},
   note   = {OCF AI Research Internship},
   url    = {https://github.com/trickster-2005/Cantonese-OCR-Benchmark}
